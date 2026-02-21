@@ -1,0 +1,197 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Feb 20 18:09:27 2026
+# Process ID: 9337
+# Current directory: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1
+# Command line: vivado -log RR_ARBITER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RR_ARBITER.tcl
+# Log file: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1/RR_ARBITER.vds
+# Journal file: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1/vivado.jou
+# Running On: iccad-9, OS: Linux, CPU Frequency: 3800.000 MHz, CPU Physical cores: 4, Host memory: 16666 MB
+#-----------------------------------------------------------
+source RR_ARBITER.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1582.141 ; gain = 91.883 ; free physical = 5022 ; free virtual = 26526
+Command: read_checkpoint -auto_incremental -incremental /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.srcs/utils_1/imports/synth_1/RR_ARBITER.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.srcs/utils_1/imports/synth_1/RR_ARBITER.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top RR_ARBITER -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1540] The version limit for your license is '2025.01' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for new releases.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9397
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2017.824 ; gain = 407.715 ; free physical = 4307 ; free virtual = 25839
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'RR_ARBITER' [/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'FP_ARBITER' [/home/piraten/qi7275ji/Router_MS/RTL/FP_ABITER.sv:5]
+	Parameter NR bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'FP_ARBITER' (0#1) [/home/piraten/qi7275ji/Router_MS/RTL/FP_ABITER.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'RR_ARBITER' (0#1) [/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv:4]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2091.762 ; gain = 481.652 ; free physical = 4246 ; free virtual = 25759
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2109.574 ; gain = 499.465 ; free physical = 4237 ; free virtual = 25749
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx485tffg1157-1
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2117.578 ; gain = 507.469 ; free physical = 4236 ; free virtual = 25749
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2153.727 ; gain = 543.617 ; free physical = 4190 ; free virtual = 25703
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    5 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2800 (col length:140)
+BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3898 ; free virtual = 25425
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3898 ; free virtual = 25425
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3898 ; free virtual = 25425
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     1|
+|2     |LUT4 |     3|
+|3     |LUT5 |     2|
+|4     |LUT6 |     9|
+|5     |FDRE |     3|
+|6     |IBUF |     7|
+|7     |OBUF |     5|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    30|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.422 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2400.430 ; gain = 790.312 ; free physical = 3880 ; free virtual = 25416
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2407.359 ; gain = 0.000 ; free physical = 4160 ; free virtual = 25695
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2499.922 ; gain = 0.000 ; free physical = 4068 ; free virtual = 25603
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 51c813f
+INFO: [Common 17-83] Releasing license: Synthesis
+19 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 2499.957 ; gain = 911.879 ; free physical = 4078 ; free virtual = 25614
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1825.440; main = 1588.785; forked = 380.446
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4014.922; main = 2499.926; forked = 1614.496
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2523.934 ; gain = 0.000 ; free physical = 4078 ; free virtual = 25613
+INFO: [Common 17-1381] The checkpoint '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1/RR_ARBITER.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file RR_ARBITER_utilization_synth.rpt -pb RR_ARBITER_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 20 18:10:17 2026...

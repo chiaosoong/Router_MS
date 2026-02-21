@@ -1,0 +1,7 @@
+Running: xsim.dir/TB_RR_ARBITER_behav/xsimk -simmode gui -wdb TB_RR_ARBITER_behav.wdb -simrunnum 0 -socket 48865
+Design successfully loaded
+Design Loading Memory Usage: 34164 KB (Peak: 34284 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 120260 KB (Peak: 173432 KB)
+Simulation CPU Usage: 10 ms

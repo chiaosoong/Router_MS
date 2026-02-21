@@ -1,0 +1,749 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sat Feb 21 10:42:23 2026
+# Process ID: 7198
+# Current directory: /home/piraten/qi7275ji/Router_MS/Sim
+# Command line: vivado
+# Log file: /home/piraten/qi7275ji/Router_MS/Sim/vivado.log
+# Journal file: /home/piraten/qi7275ji/Router_MS/Sim/vivado.jou
+# Running On: iccad-9, OS: Linux, CPU Frequency: 3800.000 MHz, CPU Physical cores: 4, Host memory: 16666 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at /usr/local-eit/cad2/xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local-eit/cad2/xilinx/Vivado/2023.2/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:12 . Memory (MB): peak = 8194.883 ; gain = 357.375 ; free physical = 9936 ; free virtual = 29370
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_FP_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_FP_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_FP_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_FP_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER(NR=6)
+Compiling module xil_defaultlib.TB_FP_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_FP_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_FP_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_FP_ARBITER} -tclbatch {TB_FP_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_FP_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_FP_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 8369.297 ; gain = 72.266 ; free physical = 8324 ; free virtual = 28133
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_FP_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_FP_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_FP_ARBITER_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_FP_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8574.250 ; gain = 18.996 ; free physical = 6753 ; free virtual = 27308
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse /home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv
+update_compile_order -fileset sim_1
+set_property top TB_RR_ARBITER [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_RR_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_RR_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_RR_ARBITER} -tclbatch {TB_RR_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_RR_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_RR_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 8657.289 ; gain = 59.828 ; free physical = 6857 ; free virtual = 27236
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top TB_FP_ARBITER [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_FP_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_FP_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_FP_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_FP_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER(NR=6)
+Compiling module xil_defaultlib.TB_FP_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_FP_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_FP_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_FP_ARBITER} -tclbatch {TB_FP_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_FP_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_FP_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 8783.344 ; gain = 38.016 ; free physical = 6863 ; free virtual = 27241
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_FP_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_FP_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_FP_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_FP_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_FP_ARBITER_behav xil_defaultlib.TB_FP_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER(NR=6) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER(NR=6)
+Compiling module xil_defaultlib.TB_FP_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_FP_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_FP_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_FP_ARBITER} -tclbatch {TB_FP_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_FP_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_FP_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 8793.348 ; gain = 10.004 ; free physical = 6867 ; free virtual = 27253
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top TB_RR_ARBITER [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_RR_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_RR_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_RR_ARBITER} -tclbatch {TB_RR_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_RR_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_RR_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 8853.375 ; gain = 34.016 ; free physical = 6823 ; free virtual = 27208
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 8873.383 ; gain = 0.000 ; free physical = 6849 ; free virtual = 27247
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_RR_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_RR_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_RR_ARBITER} -tclbatch {TB_RR_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_RR_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_RR_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 8873.383 ; gain = 0.000 ; free physical = 6766 ; free virtual = 27145
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 8900.391 ; gain = 17.996 ; free physical = 6875 ; free virtual = 27245
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_RR_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_RR_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_RR_ARBITER} -tclbatch {TB_RR_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_RR_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_RR_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 8934.129 ; gain = 10.004 ; free physical = 6672 ; free virtual = 27101
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 8934.129 ; gain = 0.000 ; free physical = 6472 ; free virtual = 26949
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/usr/local-eit/cad2/xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'TB_RR_ARBITER' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_RR_ARBITER
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "TB_RR_ARBITER_behav -key {Behavioral:sim_1:Functional:TB_RR_ARBITER} -tclbatch {TB_RR_ARBITER.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source TB_RR_ARBITER.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'TB_RR_ARBITER_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 8949.133 ; gain = 15.004 ; free physical = 6408 ; free virtual = 26844
+relaunch_sim
+Command: launch_simulation -step compile -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj TB_RR_ARBITER_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -step elaborate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'TB_RR_ARBITER'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /usr/local-eit/cad2/xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_RR_ARBITER_behav xil_defaultlib.TB_RR_ARBITER xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8949.133 ; gain = 0.000 ; free physical = 6510 ; free virtual = 26931
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 21 12:13:28 2026...
