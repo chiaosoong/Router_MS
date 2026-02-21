@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 13 2023
+20:21:30
+/home/piraten/qi7275ji/Router_MS/RTL/FIFO/DP_RAM.sv,1771690409,systemVerilog,,/home/piraten/qi7275ji/Router_MS/RTL/FIFO/SYNC_FIFO.sv,,DP_RAM,,uvm,,,,,,
+/home/piraten/qi7275ji/Router_MS/RTL/FIFO/SYNC_FIFO.sv,1771702808,systemVerilog,,/home/piraten/qi7275ji/Router_MS/TB/TB_SYNC_FIFO.sv,,SYNC_FIFO,,uvm,,,,,,
+/home/piraten/qi7275ji/Router_MS/Sim/FIFO/FIFO/FIFO.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,uvm,,,,,,
+/home/piraten/qi7275ji/Router_MS/TB/TB_SYNC_FIFO.sv,1771702638,systemVerilog,,,,TB_SYNC_FIFO,,uvm,,,,,,

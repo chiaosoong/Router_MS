@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FIFO/DP_RAM.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DP_RAM
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/RTL/FIFO/SYNC_FIFO.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SYNC_FIFO
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/piraten/qi7275ji/Router_MS/TB/TB_SYNC_FIFO.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TB_SYNC_FIFO
