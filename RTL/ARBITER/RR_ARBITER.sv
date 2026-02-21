@@ -22,7 +22,9 @@ always_comb begin
 	end
 end
 
-//---------- Masked request branch -------------//
+//--------------------------------------------------
+// Masked request branch
+//--------------------------------------------------
 logic [NR-1:0] req_mask;      // Mask the high priority region
 assign req_mask = {NR{1'b1}} - (2**ptr - 1);
 logic [NR-1:0] REQ_masked;    // Masked request vector
@@ -35,7 +37,9 @@ FP_ARBITER #(.NR(5)) u0_fp_masked(
 );
 
 
-//---------- Unmasked request branch -------------//
+//--------------------------------------------------
+// Unmasked request branch
+//--------------------------------------------------
 FP_ARBITER #(.NR(5)) u1_fp_unmasked(
 	.RSTn(RSTn),
 	.REQ(REQ),

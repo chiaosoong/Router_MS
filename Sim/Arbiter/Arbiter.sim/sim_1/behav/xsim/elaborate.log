@@ -6,4 +6,17 @@ Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/RR_ARBITER.sv" Line 4. Module RR_ARBITER_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/piraten/qi7275ji/Router_MS/RTL/ARBITER/FP_ARBITER.sv" Line 5. Module FP_ARBITER doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.TB_RR_ARBITER
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_RR_ARBITER_behav

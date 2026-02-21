@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1771607363" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/RR_ARBITER.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1771691037" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/RR_ARBITER.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="RR_ARBITER_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="RR_ARBITER.dcp"/>
   <File Type="RDS-UTIL-PB" Name="RR_ARBITER_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="RR_ARBITER.tcl"/>
   <File Type="RDS-UTIL" Name="RR_ARBITER_utilization_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="RR_ARBITER_reports.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="RR_ARBITER_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="RR_ARBITER.vds"/>
+  <File Type="REPORTS-TCL" Name="RR_ARBITER_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="RR_ARBITER_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="RR_ARBITER.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../../RTL/FP_ABITER.sv">
+    <File Path="$PPRDIR/../../RTL/ARBITER/FP_ARBITER.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../RTL/RR_ARBITER.sv">
+    <File Path="$PPRDIR/../../RTL/ARBITER/RR_ARBITER.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

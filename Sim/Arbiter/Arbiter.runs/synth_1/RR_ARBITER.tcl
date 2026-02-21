@@ -85,8 +85,8 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  /home/piraten/qi7275ji/Router_MS/RTL/FP_ABITER.sv
-  /home/piraten/qi7275ji/Router_MS/RTL/RR_ARBITER.sv
+  /home/piraten/qi7275ji/Router_MS/RTL/ARBITER/FP_ARBITER.sv
+  /home/piraten/qi7275ji/Router_MS/RTL/ARBITER/RR_ARBITER.sv
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -25,7 +25,13 @@ initial begin
 	REQ <= 5'b11100; #20
 	REQ <= 5'b01000; #20
 	REQ <= 5'b10000; #20
-	REQ <= 5'b11100;
+
+	REQ <= 5'b01111; #20
+	REQ <= 5'b10111; #20
+	REQ <= 5'b11011; #20
+	REQ <= 5'b11101; #20
+	REQ <= 5'b11110; #20
+	REQ <= 5'b11111;
 end
 
 endmodule

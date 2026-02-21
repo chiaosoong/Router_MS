@@ -12,8 +12,8 @@ module FP_ARBITER #(
 
 integer i;
 logic [NR-1:0] c;
-assign c[0] = 1'b1;
 always_comb begin
+	c[0] = 1'b1;
 	if (~RSTn)	GRT = {NR{1'b0}};
 	else begin
 		for (i = 0; i < NR; i++) begin

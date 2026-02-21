@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  \
-"../../../../../../RTL/FP_ARBITER.sv" \
-"../../../../../../RTL/RR_ARBITER.sv" \
+"../../../../../../RTL/ARBITER/FP_ARBITER.sv" \
+"../../../../../../RTL/ARBITER/RR_ARBITER.sv" \
 "../../../../../../TB/TB_RR_ARBITER.sv" \
 
 # compile glbl module

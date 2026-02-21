@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Fri Feb 20 18:09:27 2026
-# Process ID: 9337
+# Start of session at: Sat Feb 21 17:24:01 2026
+# Process ID: 55914
 # Current directory: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1
 # Command line: vivado -log RR_ARBITER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RR_ARBITER.tcl
 # Log file: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1/RR_ARBITER.vds
 # Journal file: /home/piraten/qi7275ji/Router_MS/Sim/Arbiter/Arbiter.runs/synth_1/vivado.jou
-# Running On: iccad-9, OS: Linux, CPU Frequency: 3800.000 MHz, CPU Physical cores: 4, Host memory: 16666 MB
+# Running On: iccad-9, OS: Linux, CPU Frequency: 3043.875 MHz, CPU Physical cores: 4, Host memory: 16666 MB
 #-----------------------------------------------------------
 source RR_ARBITER.tcl -notrace
