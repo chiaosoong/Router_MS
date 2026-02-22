@@ -38,14 +38,14 @@ module TB_SYNC_FIFO();
 
         // --- 3. Only Write (Fill half) ---
         for (i = 0; i < 8; i++) begin 
-            wr_fifo(i); 
+            wr_fifo(i);
         end
         WR_EN = 0; // Turn off write after loop
 
         // --- 4. Simultaneous Read/Write ---
         RD_EN = 1;
         for (i = 8; i < 16; i++) begin 
-            wr_fifo(i); 
+            wr_fifo(i);
         end
         RD_EN = 0;
         WR_EN = 0;
@@ -61,8 +61,6 @@ module TB_SYNC_FIFO();
         $finish();
     end
 
-    // --- Updated Tasks ---
-    
     task wr_fifo(input [WIDTH-1:0] w_data);
         begin
             @(posedge CLK); // Synchronize to clock
