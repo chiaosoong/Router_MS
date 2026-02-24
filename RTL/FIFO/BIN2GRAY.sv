@@ -1,19 +1,19 @@
 /**********************************
-* Parameterized Gray Encoder
+* Parameterized Binary to Gray Converter
 **********************************/
-module GRAY_ENCODER #(
+module BIN2GRAY #(
   parameter W = 8
 )(
-  input  [W-1:0] D,       // input data
+  input  [W-1:0] B,       // input binary data
 
   output logic [W-1:0] G  // Gray code
 );
 
 integer i;
 always_comb begin
-  G[W-1] = D[W-1];
+  G[W-1] = B[W-1];
   for (i = W-2; i >= 0; i--)
-    G[i] = D[i] ^ D[i+1];
+    G[i] = B[i] ^ B[i+1];
 end
 
 endmodule
