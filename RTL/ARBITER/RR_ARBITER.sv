@@ -1,5 +1,6 @@
 /**********************************
 * Parameterized Round Robin Arbiter
+* V2.0: Enable added, only update priority when EN asserted
 **********************************/
 module RR_ARBITER #(
   parameter NR = 5,              // Number of requesters
@@ -7,6 +8,7 @@ module RR_ARBITER #(
 ) (
   input  logic CLK,
   input  logic RSTn,
+  input  logic EN,               // Only perfor arbitration when enabled
   input  logic [NR-1:0] REQ,     // Request vector
 
   output logic [NR-1:0] GRT      // Grant vector
@@ -49,8 +51,9 @@ FP_ARBITER #(.NR(5)) u1_fp_unmasked(
 assign GRT = (REQ_masked == 0) ? GRT_unmasked : GRT_masked;
 
 always_ff @(posedge CLK) begin
-	if (~RSTn)	ptr <= {WIDTH{1'b0}};
-	else if (|REQ)  ptr <= new_ptr; 
+	if (!RSTn)	ptr <= {WIDTH{1'b0}};
+	else if (|REQ && EN)  ptr <= new_ptr; 
 end
 
 endmodule
+
