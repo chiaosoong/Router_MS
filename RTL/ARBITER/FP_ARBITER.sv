@@ -3,24 +3,13 @@
 * LSB has the highest priority
 **********************************/
 module FP_ARBITER #(
-	parameter NR = 5               // Number of requesters
+    parameter NR = 5
 ) (
-	input 		      RSTn,
-	input  logic [NR-1:0] REQ,     // Request vector
-	output logic [NR-1:0] GRT      // Grant vector
+    input  logic [NR-1:0] REQ,
+    output logic [NR-1:0] GRT
 );
 
-integer i;
-logic [NR-1:0] c;
-always_comb begin
-	c[0] = 1'b1;
-	if (~RSTn)	GRT = {NR{1'b0}};
-	else begin
-		for (i = 0; i < NR; i++) begin
-			GRT[i] = REQ[i] & c[i];
-			if (i < NR-1) c[i+1] = ~REQ[i] & c[i];
-		end
-	end
-end
+  // Find the lowest 1: and 2's complement
+  assign GRT = REQ & (~(REQ - 1'b1));
 
 endmodule
