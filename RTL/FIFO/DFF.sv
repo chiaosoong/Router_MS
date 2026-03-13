@@ -13,9 +13,9 @@ module DFF #(
   output logic [W-1:0] Q   // delayed output
 );
 
-always_ff @(posedge CLK) begin
-  if (~RSTn)    Q <= 'h0;
-  else if (CE)  Q <= D;
-end
+  always_ff @(posedge CLK) begin
+    if (~RSTn)    Q <= 'h0;
+    else if (CE)  Q <= D;
+  end
 
 endmodule

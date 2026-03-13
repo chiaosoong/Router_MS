@@ -15,7 +15,7 @@ module TB_ASYNC_FIFO();
     // Read and write clock Generation
     initial begin RCLK = 0; WCLK = 0; end
     always #(RPERIOD/2) RCLK = ~RCLK;
-    always #(WPERIOD/2) WCLK = ~WCLK;
+    always #(RPERIOD/2) WCLK = ~WCLK;
 
     // DUT Instantiation
     ASYNC_FIFO #(
@@ -23,7 +23,7 @@ module TB_ASYNC_FIFO();
         .DEPTH(DEPTH),
         .ADDR_W(ADDR_W),
         .PTR_W(PTR_W)
-    ) dut_sync_fifo (.*);
+    ) dut_async_fifo (.*);
 
     integer i;
 
@@ -64,7 +64,7 @@ module TB_ASYNC_FIFO();
 
         #(RPERIOD * 5);
         // --- 6. Only Write (make FIFO full) ---
-        for (i = 0; i < 32; i++) begin
+        for (i = 32; i >= 16; i--) begin
             wr_fifo(i);
         end
         $display("Simulation Finished");
