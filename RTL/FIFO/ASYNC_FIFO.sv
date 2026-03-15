@@ -25,7 +25,7 @@ module ASYNC_FIFO #(
 	  .DEPTH  (DEPTH),
 	  .ADDR_W (ADDR_W)
   ) u0_dp_ram (
-	  .RSTn   (WRSTn | RRSTn),
+	  .RSTn   (WRSTn & RRSTn),
 	  .WR_CLK (WCLK),
 	  .RD_CLK (RCLK),
 	  .WR_EN  (WINC && !WFULL),

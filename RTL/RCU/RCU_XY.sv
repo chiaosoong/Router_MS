@@ -1,24 +1,35 @@
-/********************************** 
-* Routing Calculation Unit:
-* Dimension-order routing (XY-routing)
+/**********************************
+* Routing Calculation Unit: Dimension-order routing (XY-routing)
+* Computes: 1) output port; 2) candidate output VC
 **********************************/
 module RCU_XY
 import noc_params::*;
 #(
-  parameter POS THIS_X = P0,  // Local PE ID
-  parameter POS THIS_Y = P0
+  parameter POS THISX = P0,  // Local PE ID
+  parameter POS THISY = P0
 )(
-  input  POS    DSTX,
-  input  POS    DSTY,
-  output port_t PRT
+  input logic       CLK,
+  input logic       IS_HEADER,
+  input msg_class_t MSG,
+  input  POS        DSTX,
+  input  POS        DSTY,
+  output port_t     PRT,
+  output vc_req     CandidateOVC
 );
 
+  port_t prt;
   always_comb begin
-    if (THIS_X < DSTX)      PRT = EAST;
-    else if (THIS_X > DSTX) PRT = WEST;
-    else if (THIS_Y > DSTY) PRT = SOUTH;
-    else if (THIS_Y < DSTY) PRT = NORTH;
-    else                    PRT = LOCL;
+    if (THISX < DSTX)      prt = EAST;
+    else if (THISX > DSTX) prt = WEST;
+    else if (THISY > DSTY) prt = SOUTH;
+    else if (THISY < DSTY) prt = NORTH;
+    else                   prt = LOCL;
   end
 
+  port_t prt_reg;
+  always_ff @(posedge CLK) begin
+    if (IS_HEADER)  prt_reg <= prt;
+  end
+
+  assign PRT = IS_HEADER ? prt : prt_reg;
 endmodule
