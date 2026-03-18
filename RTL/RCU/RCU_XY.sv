@@ -8,13 +8,14 @@ import noc_params::*;
   parameter POS THISX = P0,  // Local PE ID
   parameter POS THISY = P0
 )(
-  input logic       CLK,
-  input logic       IS_HEADER,
-  input msg_class_t MSG,
-  input  POS        DSTX,
-  input  POS        DSTY,
-  output port_t     PRT,
-  output vc_req     CandidateOVC
+  input logic                     CLK,
+  input logic                     IS_HEADER,
+  input msg_class_t               MSG,
+  input  POS                      DSTX,
+  input  POS                      DSTY,
+  input  logic                    OVCLOCK,
+  output port_t                   REQPRT, // which port the packet wants
+  output logic [VC_PER_PORT-1:0]  REQVC   // which VCs are allowable at the port
 );
 
   port_t prt;
@@ -31,5 +32,11 @@ import noc_params::*;
     if (IS_HEADER)  prt_reg <= prt;
   end
 
-  assign PRT = IS_HEADER ? prt : prt_reg;
+  assign REQPRT = IS_HEADER ? prt : prt_reg;
+  always_comb begin
+    if (IS_HEADER && (!OVCLOCK))
+      REQVC = (MSG == REQ) ? 4'b0011 : 4'b1100;
+    else
+      REQVC = 'h0;
+  end
 endmodule

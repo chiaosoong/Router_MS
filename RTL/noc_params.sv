@@ -42,8 +42,9 @@ package noc_params;
   localparam int VC_PER_CLASS = 2;
   typedef enum logic {VC0, VC1} vc_t;
   localparam int VC_PER_PORT  = VC_PER_CLASS * CLASS_NUM;
+  localparam int VC_PRT_SIZE = (VC_PER_PORT <= 1) ? 1 : $clog2(VC_PER_PORT);
+
   localparam int VC_NUM = VC_PER_PORT * PORT_NUM;
-  typedef logic [VC_NUM-1:0] vc_req;
   localparam int VC_SIZE = (VC_NUM <= 1) ? 1 : $clog2(VC_NUM);
   // FIFO depth
   localparam int FIFO_DEPTH = 4;
