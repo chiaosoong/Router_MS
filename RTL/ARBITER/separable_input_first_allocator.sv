@@ -1,25 +1,25 @@
 import noc_params::*;
 
-module separable_input_first_allocator #(
-  parameter int VC_NUM = 2
+module SEPARABLE_INPUT_FIRST_ALLOCATOR #(
+  parameter int VC_PER_PORT = noc_params::VC_PER_PORT
 )(
   input  logic clk,
   input  logic RSTn,   
 
   // vc_request[in_port][vc] = 1 表示该输入端口的该VC请求分配
-  input  logic [PORT_NUM-1:0][VC_NUM-1:0] vc_request,
+  input  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] vc_request,
 
   // vc_target_port[in_port][vc] = 该VC想要去的输出端口
-  input  port_t [VC_NUM-1:0] vc_target_port [PORT_NUM-1:0],
+  input  port_t [VC_PER_PORT-1:0] vc_target_port [PORT_NUM-1:0],
 
   // vc_grant_final[in_port][vc] = 最终赢得分配
-  output logic [PORT_NUM-1:0][VC_NUM-1:0] vc_grant_final
+  output logic [PORT_NUM-1:0][VC_PER_PORT-1:0] vc_grant_final
 );
 
   //----------------------------------------------------------
   // 第一阶段结果：每个输入端口选中的 VC
   //----------------------------------------------------------
-  logic [PORT_NUM-1:0][VC_NUM-1:0] vc_selected_per_input;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] vc_selected_per_input;
 
   //----------------------------------------------------------
   // 第二阶段使用的请求矩阵：
@@ -42,10 +42,11 @@ module separable_input_first_allocator #(
   generate
     for (in_port = 0; in_port < PORT_NUM; in_port++) begin : GEN_VC_ARBITER
       RR_ARBITER #(
-        .NR(VC_NUM)
+        .NR(VC_PER_PORT)
       ) vc_rr (
         .CLK (clk),
         .RSTn(RSTn),
+        .EN  (1'b1),
         .REQ (vc_request[in_port]),
         .GRT (vc_selected_per_input[in_port])
       );
@@ -64,6 +65,7 @@ module separable_input_first_allocator #(
       ) port_rr (
         .CLK (clk),
         .RSTn(RSTn),
+        .EN  (1'b1),
         .REQ (output_port_request[out_port]),
         .GRT (output_port_winner[out_port])
       );
@@ -81,7 +83,7 @@ module separable_input_first_allocator #(
 
     // -------- 第一阶段到第二阶段的映射 --------
     for (int in_p = 0; in_p < PORT_NUM; in_p++) begin
-      for (int vc = 0; vc < VC_NUM; vc++) begin
+      for (int vc = 0; vc < VC_PER_PORT; vc++) begin
         if (vc_selected_per_input[in_p][vc]) begin
           output_port_request[
             vc_target_port[in_p][vc]
@@ -95,7 +97,7 @@ module separable_input_first_allocator #(
     for (int out_p = 0; out_p < PORT_NUM; out_p++) begin
       for (int in_p = 0; in_p < PORT_NUM; in_p++) begin
         if (output_port_winner[out_p][in_p]) begin
-          for (int vc = 0; vc < VC_NUM; vc++) begin
+          for (int vc = 0; vc < VC_PER_PORT; vc++) begin
             if (vc_selected_per_input[in_p][vc]) begin
               vc_grant_final[in_p][vc] = 1'b1;
               break;

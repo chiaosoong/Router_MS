@@ -26,7 +26,7 @@ package noc_params;
 //--------------------------------------------------
   // Message class: response or request
   typedef enum logic [2:0] {REQ, RESP} msg_class_t;
-  typedef int CLASS_NUM = 2;  // There are only req and resp msg
+  localparam int CLASS_NUM = 2;  // There are only req and resp msg
   // Flit type
   typedef enum logic [1:0] {
     FLIT_HEAD     = 2'b00,

@@ -32,8 +32,7 @@ assign req_mask = {NR{1'b1}} - (2**ptr - 1);
 logic [NR-1:0] REQ_masked;    // Masked request vector
 assign REQ_masked = req_mask & REQ;
 logic [NR-1:0] GRT_masked, GRT_unmasked;
-FP_ARBITER #(.NR(5)) u0_fp_masked(
-	.RSTn(RSTn),
+FP_ARBITER #(.NR(NR)) u0_fp_masked(
 	.REQ(REQ_masked),
 	.GRT(GRT_masked)
 );
@@ -42,8 +41,7 @@ FP_ARBITER #(.NR(5)) u0_fp_masked(
 //--------------------------------------------------
 // Unmasked request branch
 //--------------------------------------------------
-FP_ARBITER #(.NR(5)) u1_fp_unmasked(
-	.RSTn(RSTn),
+FP_ARBITER #(.NR(NR)) u1_fp_unmasked(
 	.REQ(REQ),
 	.GRT(GRT_unmasked)
 );

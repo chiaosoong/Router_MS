@@ -24,7 +24,7 @@ import noc_params::*;
     else if (THISX > DSTX) prt = WEST;
     else if (THISY > DSTY) prt = SOUTH;
     else if (THISY < DSTY) prt = NORTH;
-    else                   prt = LOCL;
+    else                   prt = LOCAL;
   end
 
   port_t prt_reg;
