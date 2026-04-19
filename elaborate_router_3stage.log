@@ -1,0 +1,25 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --debug typical --relax --snapshot TB_ROUTER_3STAGE_VC_behav work.TB_ROUTER_3STAGE_VC -log elaborate_router_3stage.log 
+Multi-threading is on. Using 18 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Router_MS/TB/TB_ROUTER_3STAGE_VC.sv" Line 5. Module TB_ROUTER_3STAGE_VC has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Router_MS/TB/TB_ROUTER_3STAGE_VC.sv" Line 5. Module TB_ROUTER_3STAGE_VC has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package work.noc_params
+Compiling module work.router_vc_flit_if_default
+Compiling module work.SYNC_FIFO(WIDTH=34)
+Compiling module work.FP_ARBITER(NR=4)
+Compiling module work.RR_ARBITER(NR=4)
+Compiling module work.FP_ARBITER
+Compiling module work.RR_ARBITER_default
+Compiling module work.SEPARABLE_INPUT_FIRST_ALLOCATOR(...
+Compiling module work.ROUTER_3STAGE_VC(THISX=P1_noc_pa...
+Compiling module work.TOP(THISX=P1_noc_params,THISY=P1...
+Compiling module work.TB_ROUTER_3STAGE_VC
+Built simulation snapshot TB_ROUTER_3STAGE_VC_behav

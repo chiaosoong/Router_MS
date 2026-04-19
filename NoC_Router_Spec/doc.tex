@@ -1,0 +1,410 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{geometry}   % paperwidth = 21cm
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{booktabs}   % For professional tables
+\usepackage{graphicx}   % For block diagrams
+\usepackage{amsmath}    % For equations
+\usepackage{fancyhdr}   % For headers/footers
+\usepackage{hyperref}   % For clickable links
+\usepackage{xcolor}
+\pdfsuppresswarningpagegroup=1
+
+\newcommand{\safegraphic}[2]{%
+    \IfFileExists{#1.pdf}{\includegraphics[width=#2]{#1.pdf}}{%
+    \IfFileExists{#1.png}{\includegraphics[width=#2]{#1.png}}{%
+    \fbox{\parbox[c][0.16\textheight][c]{#2}{\centering Missing figure: \texttt{\detokenize{#1}}}}}}}
+
+% --- Header & Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{NoC Router}
+\rhead{Ver: 0.9.0}
+\cfoot{Page \thepage}
+\setlength{\headheight}{14pt}
+\hbadness=10000
+
+% --- Title Information ---
+\title{
+    \rule{\linewidth}{0.5mm} \\
+    \textbf{NoC Router} \\
+    \large Master Thesis \\
+    \rule{\linewidth}{0.5mm}
+}
+\author{Qiaosong Jing and Wenqi Li}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This document specifies the current RTL implementation of a Network-on-Chip (\textbf{NoC}) router. The router conducts \textbf{flit} movement from source Processing Element (\textbf{PE}) to destination PE. The implemented top module is \texttt{TOP}, which wraps a three-stage virtual-channel router \texttt{ROUTER\_3STAGE\_VC} with \textbf{wormhole switching}, \textbf{XY-routing}, and \textbf{per-port virtual channels}.
+
+\section{Functional Description}
+\subsection{Key Features}
+\begin{itemize}
+    \item \textbf{NoC Topology}: The NoC adopts a \(3\times3\) 2 dimensional mesh topology, shown in Figure~\ref{fig:mesh}.
+\begin{figure}[htbp]
+    \centering
+    %\includesvg[width=\textwidth]{arbiter} 
+    %\includegraphics[width=\textwidth]{router.png} 
+    \safegraphic{fig1_noc_mesh}{0.5\textwidth}
+
+    \caption{2D mesh NoC}
+    \label{fig:mesh}
+\end{figure}
+    \item \textbf{Routing Algorithm}: Dimension-order routing, \textbf{XY-routing}: distributed and deterministic routing strategy. Routing result is only determined by the destination and current Cartesian coordinates. The algorithm is shown in Algoritm~\ref{alg:xy_routing}.
+
+\begin{algorithm}[t]
+\caption{Pseudo code of the XY-routing computation}
+\label{alg:xy_routing}
+
+\textbf{Definitions:}
+\begin{itemize}
+    \item $cur_x, cur_y$: current router coordinates.
+    \item $dst_x, dst_y$: destination router coordinates.
+    \item $port$: selected output port.
+\end{itemize}
+
+\textbf{Input:}
+\begin{itemize}
+    \item $cur_x, cur_y$: coordinates of current router.
+    \item $dst_x, dst_y$: coordinates extracted from the header flit.
+\end{itemize}
+
+\textbf{Output:}
+\begin{itemize}
+    \item $port$: routing decision toward the next hop.
+\end{itemize}
+
+\begin{algorithmic}[1]
+\If{$dst_x > cur_x$}
+    \State $port \gets EAST$
+\ElsIf{$dst_x < cur_x$}
+    \State $port \gets WEST$
+\ElsIf{$dst_y > cur_y$}
+    \State $port \gets NORTH$
+\ElsIf{$dst_y < cur_y$}
+    \State $port \gets SOUTH$
+\Else
+    \State $port \gets LOCAL$
+\EndIf
+\State \Return $port$
+\end{algorithmic}
+\end{algorithm}
+
+    \item \textbf{Wormhole Switching}: The packets are divided into flits (flow control digits), which are all 32-bit in the design. The first flit in a packet (\textbf{header}), which contains routing and control information, reserves the channel of each router, the \textbf{body} (payload) flits will then follow the reserved channel, and the \textbf{tail} flit will later release the channel reservation. The header contains necessary control signals of the packet, whose format is shown in Figure~\ref{fig:header}.
+\begin{figure}[htbp]
+    \centering
+    \safegraphic{fig2_header_format}{\textwidth}
+    \caption{Header flit format}
+    \label{fig:header}
+\end{figure}
+    The header is parsed to derive fields, as shown in Table~\ref{tab:headflit}. Fields definitions are illustrated more detailed in Section~\ref{subsec:parameter_definition}.
+
+\begin{table}[htbp]
+\centering
+\caption{Header Flit Fields}
+\label{tab:headflit}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+\textbf{Field Name} & \textbf{Bit Slice} & \textbf{Width} & \textbf{Description} \\ \midrule
+\texttt{DSTX}        & [31:28]      & 4        & Destination ID. \\
+\texttt{DSTY}        & [27:24]      & 4        & Destination ID. \\
+\texttt{SRCX}        & [23:20]      & 4        & Source ID. \\
+\texttt{SRCY}        & [19:16]      & 4        & Source ID. \\
+\texttt{FLIT}        & [15:14]      & 2        & Flit Type. \\
+\texttt{LEN}         & [13:10]      & 4        & Packet Length. \\
+\texttt{VCID}        & [4:3]        & 2        & Reserved in the current RTL. Next-hop VC selection is carried by the link signal \texttt{vc\_id}. \\
+\texttt{MSG}         & [2:0]        & 3        & Message Class.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+    \item \textbf{Virtual Channel}: Helps reduce head-of-line (\textbf{HoL}) blocking and allows different traffic flows to share the same physical channel more efficiently.
+
+\end{itemize}    
+
+\subsection{Parameter Definition}
+\label{subsec:parameter_definition}
+
+To improve readability and maintain consistency between the RTL and the architectural description, the main design parameters and user-defined types are summarized below.
+
+\subsubsection*{Processing Element Position}
+Each router or PE is identified by its Cartesian coordinate \((x,y)\), where each coordinate ranges from 0 to 2. Since each dimension has three legal positions, the following position type is defined:
+\[
+\texttt{POS} \in \{P0, P1, P2\}
+\]
+with
+\[
+\texttt{POS\_NUM} = 3
+\]
+denoting the number of legal coordinate values in one dimension, and
+\[
+\texttt{POS\_SIZE} = \lceil \log_2(\texttt{POS\_NUM}) \rceil = 2
+\]
+denoting the number of bits required to encode one coordinate.
+
+Thus, a node position in the mesh can be represented by two coordinates, one for the \(x\)-dimension and one for the \(y\)-dimension.
+
+\subsubsection*{Message Class}
+Packets are divided into two message classes:
+\[
+\texttt{msg\_class\_t} \in \{\texttt{REQ},\ \texttt{RESP}\}
+\]
+where:
+\begin{itemize}
+    \item \texttt{REQ} denotes a request message,
+    \item \texttt{RESP} denotes a response message.
+\end{itemize}
+
+This classification is useful when request and response traffic must be distinguished, for example in protocol handling, arbitration, or virtual-channel allocation.
+
+\subsubsection*{Flit Type}
+Each packet is divided into one or more flits. The flit type is defined as
+\[
+\texttt{flit\_type\_t} \in 
+\{\texttt{FLIT\_HEAD},\ \texttt{FLIT\_BODY},\ \texttt{FLIT\_TAIL},\ \texttt{FLIT\_HEADTAIL}\}.
+\]
+
+The meaning of each type is as follows:
+\begin{itemize}
+    \item \texttt{FLIT\_HEAD}: the head flit, which carries routing and control information,
+    \item \texttt{FLIT\_BODY}: an intermediate flit carrying payload data,
+    \item \texttt{FLIT\_TAIL}: the tail flit, which marks the end of a packet,
+    \item \texttt{FLIT\_HEADTAIL}: a single-flit packet that acts as both head and tail.
+\end{itemize}
+
+
+\subsubsection*{Port Definition}
+Each router has five ports corresponding to one local connection and four cardinal directions:
+\[
+\texttt{port\_t} \in 
+\{\texttt{LOCAL},\ \texttt{NORTH},\ \texttt{SOUTH},\ \texttt{WEST},\ \texttt{EAST}\}.
+\]
+
+These ports are used for both input and output directions in the router. The total number of ports is
+\[
+\texttt{PORT\_NUM} = 5.
+\]
+Accordingly, the required encoding width is
+\[
+\texttt{PORT\_SIZE} = \lceil \log_2(\texttt{PORT\_NUM}) \rceil = 3.
+\]
+
+\subsubsection*{Virtual Channels}
+To support virtual-channel flow control, each physical input port contains multiple virtual channels (IVCs and OVCs). Request and response message class each owns 2 VC respectively. The number of VCs per message class is
+\[
+\texttt{VC\_PER\_CLASS} = 2.
+\]
+Thus the number of VCs at each port is
+\[
+\texttt{VC\_PER\_PORT} = 2\times2 = 4.
+\]
+The number of bits required to index a virtual channel at an output is
+\[
+\texttt{VC\_PRT\_SIZE} = \lceil \log_2(\texttt{VC\_PER\_PORT}) \rceil = 2.
+\]
+With five ports, the total number of virtual channels is 
+\[
+\texttt{VC\_NUM} = 4\times5 = 20.
+\]
+Therefore, the number of bits required to index a virtual channel is
+\[
+\texttt{VC\_SIZE} = \lceil \log_2(\texttt{VC\_NUM}) \rceil = 5.
+\]
+The implemented router uses
+\[
+\texttt{FIFO\_DEPTH} = 4
+\]
+buffer entries for each input VC. In addition, the output-credit counter is initialized by
+\[
+\texttt{DOWNSTREAM\_VC\_DEPTH} = \texttt{FIFO\_DEPTH} + 2
+\]
+by default, in order to account for the deeper round-trip induced by the pipelined \texttt{SA} and \texttt{ST} stages.
+
+
+\subsubsection*{Summary}
+Table~\ref{tab:noc_parameters} summarizes the key parameters used in the design.
+
+\begin{table}[h]
+\centering
+\caption{NoC parameter definitions}
+\label{tab:noc_parameters}
+\begin{tabular}{p{0.22\textwidth}p{0.33\textwidth}p{0.35\textwidth}}
+\hline
+\textbf{Parameter / Type} & \textbf{Value / Members} & \textbf{Description} \\
+\hline
+\texttt{POS} & \{\texttt{P0}, \texttt{P1}, \texttt{P2}\} & Coordinate value in one dimension \\
+\texttt{POS\_NUM} & 3 & Number of legal positions per dimension \\
+\texttt{POS\_SIZE} & 2 & Bit width of one coordinate \\
+\texttt{DATA\_WIDTH} & 32 & Width of one flit \\
+\texttt{msg\_class\_t} & \{\texttt{REQ}, \texttt{RESP}\} & Message class \\
+\texttt{flit\_type\_t} & \{\texttt{HEAD}, \texttt{BODY}, \texttt{TAIL}, \texttt{HEADTAIL}\} & Flit category \\
+\texttt{port\_t} & \{\texttt{LOCAL}, \texttt{NORTH}, \texttt{SOUTH}, \texttt{WEST}, \texttt{EAST}\} & Router port direction \\
+\texttt{PORT\_NUM} & 5 & Number of router ports \\
+\texttt{PORT\_SIZE} & 3 & Bit width of port index \\
+\texttt{VC\_PER\_CLASS} & 2 & Number of VCs owned by one message class at one port \\
+\texttt{VC\_PER\_PORT} & 4 & Number of virtual channels at one physical port \\
+\texttt{VC\_PRT\_SIZE} & 2 & Bit width of one per-port VC index \\
+\texttt{VC\_NUM} & 20 & Total number of VCs in the whole router \\
+\texttt{VC\_SIZE} & 5 & Bit width of one global VC index \\
+\texttt{FIFO\_DEPTH} & 4 & Depth of each input VC FIFO \\
+
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Top Interface Signals}
+
+The current top-level interface is defined by the SystemVerilog \texttt{interface} \texttt{router\_vc\_flit\_if}. Each physical port carries flit data, packet-boundary flags, the selected virtual-channel identifier on the link, and a per-VC returned-credit bitmap. The overview of the interface is shown in Table~\ref{tab:top}.
+\begin{table}[htbp]
+\centering
+\caption{NoC Top module ports}
+\label{tab:top}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+\textbf{Signal Name} & \textbf{Source} & \textbf{Width} & \textbf{Description} \\ \midrule
+\texttt{flit\_data}        &  TX   & DATA\_WIDTH        & Header, body or tail flit data. \\
+\texttt{is\_head}          &   TX  & 1        & Header flit flag. \\
+\texttt{is\_tail}          &  TX   & 1        & Tail flit flag. \\
+\texttt{vc\_id}            &  TX   & VC\_PRT\_SIZE        & Output VC index used on the current physical link. \\
+\texttt{valid}             &  TX   & 1        & Flit data is valid. \\
+\texttt{ready}             &  RX   & 1        & Receiver is ready. \\
+\texttt{credit\_return}    &  RX   & VC\_PER\_PORT        & Returned credit bitmap from the downstream router. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Forward and Backward Paths}
+
+Every NoC router could be both TX and RX, as shown in Figure~\ref{fig:if}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{noc_interface.png} 
+    \caption{Router Interface}
+    \label{fig:if}
+\end{figure}
+According to the direction of the signals, the interface can be divided into two logical groups:
+
+\begin{itemize}
+    \item \textbf{Forward path:} \texttt{flit\_data}, \texttt{is\_head}, \texttt{is\_tail}, \texttt{vc\_id}, and \texttt{valid}. These signals are driven by the transmitter and consumed by the receiver.
+    \item \textbf{Backward path:} \texttt{ready} and \texttt{credit\_return}. These signals are generated by the receiver and sent back to the transmitter for flow control.
+\end{itemize}
+
+\subsubsection{Transfer Semantics}
+
+A flit is transferred successfully only when both \texttt{valid} and \texttt{ready} are high in the same clock cycle. In that case, the receiver accepts the flit, the associated control flags (\texttt{is\_head}, \texttt{is\_tail}) specify its role within the packet, and \texttt{vc\_id} identifies which virtual channel is occupied on the link for this transfer:
+\begin{itemize}
+    \item \texttt{is\_head = 1}: the flit is the first flit of a packet,
+    \item \texttt{is\_tail = 1}: the flit is the last flit of a packet,
+    \item \texttt{is\_head = 1} and \texttt{is\_tail = 1}: the packet consists of a single flit,
+    \item \texttt{is\_head = 0} and \texttt{is\_tail = 0}: the flit is a body flit.
+\end{itemize}
+For the returned-credit path, \texttt{credit\_return[k] = 1} indicates that the downstream router has consumed one flit from its input VC \(k\) in the same cycle, so the upstream router can increment the credit counter of the corresponding output VC.
+
+\subsubsection{Role of \texttt{modport}}
+
+The interface defines two \texttt{modport}s to constrain signal directions depending on whether a module acts as a transmitter or a receiver:
+
+\begin{itemize}
+    \item \textbf{\texttt{tx} modport:} used by the sending side. It outputs \texttt{valid}, \texttt{flit\_data}, \texttt{is\_head}, \texttt{is\_tail}, and \texttt{vc\_id}, while receiving \texttt{ready} and \texttt{credit\_return}.
+    \item \textbf{\texttt{rx} modport:} used by the receiving side. It inputs \texttt{valid}, \texttt{flit\_data}, \texttt{is\_head}, \texttt{is\_tail}, and \texttt{vc\_id}, while driving \texttt{ready} and \texttt{credit\_return}.
+\end{itemize}
+
+This separation improves readability and prevents illegal signal driving in module instantiations.
+
+
+
+\section{Architecture Design}
+\subsection{Microarchitecture}
+The implemented router adopts the three-stage pipelined organization \textbf{RC+VA | SA | ST}, as shown in Figure~\ref{fig:micro}. This corresponds to the organization of Section 9.5.2 in the referenced microarchitecture literature: routing computation (\texttt{RC}) and virtual-channel allocation (\texttt{VA}) are executed in the first stage, switch allocation (\texttt{SA}) in the second stage, and switch traversal (\texttt{ST}) in the third stage.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{router-microarchitec.png} 
+    \caption{Router Microarchitecture}
+    \label{fig:micro}
+\end{figure}
+
+\subsection{Block Diagram}
+The block diagram is depicted in Figure~\ref{fig:block}. The figure is conceptual: in the current RTL, \texttt{TOP} instantiates a single integrated module \texttt{ROUTER\_3STAGE\_VC}, while the functionality is still naturally decomposed into input virtual channels, route computation plus VC allocation, switch allocation, and switch traversal.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{block_diagram.png} 
+    \caption{Router Block Diagram}
+    \label{fig:block}
+\end{figure}
+
+\subsubsection{Top-Level Integration}
+The current top-level wrapper is
+\[
+\texttt{TOP(CLK, RSTn, IFLIT[PORT\_NUM], OFLIT[PORT\_NUM])}
+\]
+with configurable router coordinates \texttt{THISX} and \texttt{THISY}. \texttt{TOP} only instantiates the current implementation module \texttt{ROUTER\_3STAGE\_VC}. Therefore, the architectural state described below is the actual state held inside that module.
+
+\subsubsection{Stage 1: RC + VA}
+Each physical input port owns \texttt{VC\_PER\_PORT = 4} synchronous input VC FIFOs. The FIFO output is always visible at the front of the queue, which allows the router to inspect the front flit without dequeuing it.
+\begin{itemize}
+    \item If the front flit is a head flit and the input VC is not locked by a previously allocated packet, \texttt{DSTX}, \texttt{DSTY}, and \texttt{MSG} are decoded from the header.
+    \item The routing result is produced by the XY-routing function and stored as the requested output port.
+    \item In the same cycle, the router allocates one free output VC from the requested output port and from the appropriate message-class subset. In the current RTL, request packets use output VCs 0 and 1, while response packets use output VCs 2 and 3.
+    \item The allocation result is written into the first-stage pipeline registers \texttt{s1\_outport\_q} and \texttt{s1\_ovc\_q}. At the same time, the packet-level lock state \texttt{ivc\_lock\_\{valid,outport,ovc\}\_q} is established so that following body and tail flits reuse the same route and output VC.
+\end{itemize}
+
+\subsubsection{Stage 2: SA}
+Stage 2 performs switch allocation. For each input port, at most one local VC can win. For each output port, at most one requester can win. The current implementation reuses the separable input-first allocator already present in the RTL.
+\begin{itemize}
+    \item Only input VCs whose first-stage register is valid are allowed to request SA.
+    \item The winner dequeues one flit from the selected input VC FIFO.
+    \item The winning flit is captured by the second-stage data registers \texttt{s2\_\{flit\_data,is\_head,is\_tail,outport,ovc\}\_q}.
+    \item One downstream credit is consumed from the selected output VC when the flit advances from Stage 2 to Stage 3.
+    \item If the dequeued flit is a tail or head-tail flit, the corresponding input-VC packet lock is cleared at the end of Stage 2, which allows the next packet in the same input VC to perform \texttt{RC+VA} in a later cycle.
+\end{itemize}
+
+\subsubsection{Stage 3: ST}
+Stage 3 drives the link output. The flit stored in \texttt{s2\_*} traverses the crossbar and appears on \texttt{OFLIT[out\_port]} with the previously allocated \texttt{vc\_id}.
+\begin{itemize}
+    \item A Stage-3 flit leaves the router when \texttt{valid} and \texttt{ready} are both asserted on the selected output link.
+    \item If the transmitted flit is a tail or head-tail flit, the corresponding output VC busy bit is cleared, releasing the virtual channel for another packet.
+    \item Returned credits from the downstream router increment the per-output-VC credit counters \texttt{ovc\_credit\_q}.
+\end{itemize}
+
+\subsubsection{Implemented State Variables}
+The current integrated implementation replaces the earlier idea of a separate \texttt{VAU} and \texttt{SU} top-level block with explicit in-module state registers:
+\begin{itemize}
+    \item \textbf{First-stage registers}: \texttt{s1\_valid\_q}, \texttt{s1\_outport\_q}, and \texttt{s1\_ovc\_q}.
+    \item \textbf{Input-VC packet lock}: \texttt{ivc\_lock\_valid\_q}, \texttt{ivc\_lock\_outport\_q}, and \texttt{ivc\_lock\_ovc\_q}. These hold the wormhole reservation for body and tail flits.
+    \item \textbf{Output-VC occupancy}: \texttt{ovc\_busy\_q}. A bit is asserted when an output VC has been allocated to an in-flight packet and is not yet released by its tail flit.
+    \item \textbf{Output-VC credits}: \texttt{ovc\_credit\_q}. These counters track how many downstream buffer slots are currently available for each output VC.
+    \item \textbf{Second-stage data registers}: \texttt{s2\_valid\_q}, \texttt{s2\_flit\_data\_q}, \texttt{s2\_is\_head\_q}, \texttt{s2\_is\_tail\_q}, \texttt{s2\_outport\_q}, and \texttt{s2\_ovc\_q}.
+\end{itemize}
+
+\section{Timing Requirements}
+\begin{itemize}
+    \item \textbf{Clock Frequency}: Target frequency of  MHz on nm process node.
+    \item \textbf{Latency}: In the no-contention case, the head flit requires three router stages, namely \texttt{RC+VA}, \texttt{SA}, and \texttt{ST}, from the time it becomes visible at the front of an input VC until it is transmitted on the output link.
+    \item \textbf{Throughput Target}: Once a packet has reserved an input VC and an output VC, body and tail flits can continue advancing without re-running VC allocation, subject to switch-allocation success and downstream readiness.
+\end{itemize}
+
+\section{Verification Plan}
+\subsection{Testbench Strategy}
+\begin{itemize}
+    \item \textbf{Implemented testbench}: \texttt{TB\_ROUTER\_3STAGE\_VC.sv}.
+    \item \textbf{Base Test}: Inject a three-flit request packet into \texttt{LOCAL/VC0} of a router located at \((P1,P1)\) and verify that the packet is routed to \texttt{EAST}.
+    \item \textbf{Wormhole continuity}: Verify that the body and tail flits use the same output VC that was allocated to the head flit.
+    \item \textbf{Tail release}: After the first packet finishes, inject a following head-tail request packet in the same input VC and verify that it can acquire a new reservation and be routed independently.
+    \item \textbf{Observed result}: The current testbench passes under \texttt{xvlog}, \texttt{xelab}, and \texttt{xsim}.
+\end{itemize}
+
+\end{document}
