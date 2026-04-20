@@ -4,12 +4,12 @@
 interface router_vc_flit_if;
   import noc_params::*;
 
-  logic [DATA_WIDTH-1:0] flit_data;
-  logic                  is_head;
-  logic                  is_tail;
+  logic [DATA_WIDTH-1:0]  flit_data;
+  logic                   is_head;
+  logic                   is_tail;
   logic [VC_PRT_SIZE-1:0] vc_id;
-  logic                  valid;
-  logic                  ready;
+  logic                   valid;
+  logic                   ready;
   logic [VC_PER_PORT-1:0] credit_return;
 
   modport tx(

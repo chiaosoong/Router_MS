@@ -8,8 +8,8 @@ import noc_params::*;
   parameter POS THISY = P0,
   parameter int DOWNSTREAM_VC_DEPTH = FIFO_DEPTH + 2
 )(
-  input  logic CLK,
-  input  logic RSTn,
+  input      logic     CLK,
+  input      logic     RSTn,
   router_vc_flit_if.tx OFLIT[PORT_NUM],
   router_vc_flit_if.rx IFLIT[PORT_NUM]
 );

@@ -20,20 +20,20 @@ import noc_params::*;
   localparam int FIFO_WORD_W = DATA_WIDTH + 2;
   localparam int CREDIT_W    = (DOWNSTREAM_VC_DEPTH <= 1) ? 1 : $clog2(DOWNSTREAM_VC_DEPTH + 1);
 
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] fifo_wr_en;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] fifo_rd_en;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] fifo_full;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] fifo_empty;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  fifo_wr_en;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  fifo_rd_en;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  fifo_full;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  fifo_empty;
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0][FIFO_WORD_W-1:0] fifo_din;
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0][FIFO_WORD_W-1:0] fifo_dout;
 
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] front_valid;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] front_is_head;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] front_is_tail;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                 front_valid;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                 front_is_head;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                 front_is_tail;
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0][DATA_WIDTH-1:0] front_data;
 
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] s1_valid_q;
-  logic [PORT_NUM-1:0][VC_PER_PORT-1:0] s1_valid_d;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  s1_valid_q;
+  logic [PORT_NUM-1:0][VC_PER_PORT-1:0]                  s1_valid_d;
   port_t s1_outport_q [PORT_NUM-1:0][VC_PER_PORT-1:0];
   port_t s1_outport_d [PORT_NUM-1:0][VC_PER_PORT-1:0];
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0][VC_PRT_SIZE-1:0] s1_ovc_q;
@@ -72,20 +72,20 @@ import noc_params::*;
   logic [PORT_NUM-1:0] s2_slot_available;
   logic [PORT_NUM-1:0] output_busy_s2;
 
-  logic [PORT_NUM-1:0] iflit_valid;
-  logic [PORT_NUM-1:0][DATA_WIDTH-1:0] iflit_data;
-  logic [PORT_NUM-1:0] iflit_is_head;
-  logic [PORT_NUM-1:0] iflit_is_tail;
+  logic [PORT_NUM-1:0]                  iflit_valid;
+  logic [PORT_NUM-1:0][DATA_WIDTH-1:0]  iflit_data;
+  logic [PORT_NUM-1:0]                  iflit_is_head;
+  logic [PORT_NUM-1:0]                  iflit_is_tail;
   logic [PORT_NUM-1:0][VC_PRT_SIZE-1:0] iflit_vc_id;
-  logic [PORT_NUM-1:0] iflit_ready;
+  logic [PORT_NUM-1:0]                  iflit_ready;
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0] iflit_credit_return;
 
-  logic [PORT_NUM-1:0] oflit_valid;
-  logic [PORT_NUM-1:0][DATA_WIDTH-1:0] oflit_data;
-  logic [PORT_NUM-1:0] oflit_is_head;
-  logic [PORT_NUM-1:0] oflit_is_tail;
+  logic [PORT_NUM-1:0]                  oflit_valid;
+  logic [PORT_NUM-1:0][DATA_WIDTH-1:0]  oflit_data;
+  logic [PORT_NUM-1:0]                  oflit_is_head;
+  logic [PORT_NUM-1:0]                  oflit_is_tail;
   logic [PORT_NUM-1:0][VC_PRT_SIZE-1:0] oflit_vc_id;
-  logic [PORT_NUM-1:0] oflit_ready;
+  logic [PORT_NUM-1:0]                  oflit_ready;
   logic [PORT_NUM-1:0][VC_PER_PORT-1:0] oflit_credit_return;
 
   function automatic POS decode_dstx(input logic [DATA_WIDTH-1:0] flit);
@@ -113,21 +113,21 @@ import noc_params::*;
   genvar if_port_g;
   generate
     for (if_port_g = 0; if_port_g < PORT_NUM; if_port_g++) begin : GEN_IF_BIND
-      assign iflit_valid[if_port_g]        = IFLIT[if_port_g].valid;
-      assign iflit_data[if_port_g]         = IFLIT[if_port_g].flit_data;
-      assign iflit_is_head[if_port_g]      = IFLIT[if_port_g].is_head;
-      assign iflit_is_tail[if_port_g]      = IFLIT[if_port_g].is_tail;
-      assign iflit_vc_id[if_port_g]        = IFLIT[if_port_g].vc_id;
-      assign IFLIT[if_port_g].ready        = iflit_ready[if_port_g];
+      assign iflit_valid[if_port_g]         = IFLIT[if_port_g].valid;
+      assign iflit_data[if_port_g]          = IFLIT[if_port_g].flit_data;
+      assign iflit_is_head[if_port_g]       = IFLIT[if_port_g].is_head;
+      assign iflit_is_tail[if_port_g]       = IFLIT[if_port_g].is_tail;
+      assign iflit_vc_id[if_port_g]         = IFLIT[if_port_g].vc_id;
+      assign IFLIT[if_port_g].ready         = iflit_ready[if_port_g];
       assign IFLIT[if_port_g].credit_return = iflit_credit_return[if_port_g];
 
-      assign oflit_ready[if_port_g]        = OFLIT[if_port_g].ready;
+      assign oflit_ready[if_port_g]         = OFLIT[if_port_g].ready;
       assign oflit_credit_return[if_port_g] = OFLIT[if_port_g].credit_return;
-      assign OFLIT[if_port_g].valid        = oflit_valid[if_port_g];
-      assign OFLIT[if_port_g].flit_data    = oflit_data[if_port_g];
-      assign OFLIT[if_port_g].is_head      = oflit_is_head[if_port_g];
-      assign OFLIT[if_port_g].is_tail      = oflit_is_tail[if_port_g];
-      assign OFLIT[if_port_g].vc_id        = oflit_vc_id[if_port_g];
+      assign OFLIT[if_port_g].valid         = oflit_valid[if_port_g];
+      assign OFLIT[if_port_g].flit_data     = oflit_data[if_port_g];
+      assign OFLIT[if_port_g].is_head       = oflit_is_head[if_port_g];
+      assign OFLIT[if_port_g].is_tail       = oflit_is_tail[if_port_g];
+      assign OFLIT[if_port_g].vc_id         = oflit_vc_id[if_port_g];
     end
 
     for (in_port_g = 0; in_port_g < PORT_NUM; in_port_g++) begin : GEN_IVC_PORT
