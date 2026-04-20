@@ -1,1 +1,0 @@
---debug "typical" --relax --snapshot "TB_ROUTER_3STAGE_VC_behav" "work.TB_ROUTER_3STAGE_VC" -log "elaborate_router_3stage.log" 

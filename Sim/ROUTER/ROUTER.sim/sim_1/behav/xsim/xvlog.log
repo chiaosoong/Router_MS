@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Router_MS/RTL/ARBITER/FP_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP_ARBITER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Router_MS/RTL/ARBITER/RR_ARBITER.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RR_ARBITER

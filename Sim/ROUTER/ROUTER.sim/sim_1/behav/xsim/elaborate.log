@@ -1,0 +1,32 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_ROUTER_3STAGE_VC_behav xil_defaultlib.TB_ROUTER_3STAGE_VC xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4100] "C:/Router_MS/TB/TB_ROUTER_3STAGE_VC.sv" Line 5. Module TB_ROUTER_3STAGE_VC has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Router_MS/TB/TB_ROUTER_3STAGE_VC.sv" Line 5. Module TB_ROUTER_3STAGE_VC has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Router_MS/Sim/ROUTER/ROUTER.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Router_MS/Sim/ROUTER/ROUTER.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.noc_params
+Compiling module xil_defaultlib.router_vc_flit_if_default
+Compiling module xil_defaultlib.SYNC_FIFO(WIDTH=34)
+Compiling module xil_defaultlib.IVC_default
+Compiling module xil_defaultlib.RCU_XY(THISX=P1_noc_params,THISY...
+Compiling module xil_defaultlib.VAU(CREDIT_W=4)
+Compiling module xil_defaultlib.STU
+Compiling module xil_defaultlib.FP_ARBITER(NR=4)
+Compiling module xil_defaultlib.RR_ARBITER(NR=4)
+Compiling module xil_defaultlib.FP_ARBITER
+Compiling module xil_defaultlib.RR_ARBITER_default
+Compiling module xil_defaultlib.SEPARABLE_INPUT_FIRST_ALLOCATOR(...
+Compiling module xil_defaultlib.SAU
+Compiling module xil_defaultlib.TOP(THISX=P1_noc_params,THISY=P1...
+Compiling module xil_defaultlib.TB_ROUTER_3STAGE_VC
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TB_ROUTER_3STAGE_VC_behav

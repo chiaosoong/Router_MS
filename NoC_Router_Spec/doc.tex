@@ -13,12 +13,8 @@
 \usepackage{fancyhdr}   % For headers/footers
 \usepackage{hyperref}   % For clickable links
 \usepackage{xcolor}
+\usepackage{svg}
 \pdfsuppresswarningpagegroup=1
-
-\newcommand{\safegraphic}[2]{%
-    \IfFileExists{#1.pdf}{\includegraphics[width=#2]{#1.pdf}}{%
-    \IfFileExists{#1.png}{\includegraphics[width=#2]{#1.png}}{%
-    \fbox{\parbox[c][0.16\textheight][c]{#2}{\centering Missing figure: \texttt{\detokenize{#1}}}}}}}
 
 % --- Header & Footer Setup ---
 \pagestyle{fancy}
@@ -46,7 +42,7 @@
 \newpage
 
 \section{Introduction}
-This document specifies the current RTL implementation of a Network-on-Chip (\textbf{NoC}) router. The router conducts \textbf{flit} movement from source Processing Element (\textbf{PE}) to destination PE. The implemented top module is \texttt{TOP}, which wraps a three-stage virtual-channel router \texttt{ROUTER\_3STAGE\_VC} with \textbf{wormhole switching}, \textbf{XY-routing}, and \textbf{per-port virtual channels}.
+This document specifies the current RTL implementation of a Network-on-Chip (\textbf{NoC}) router. The router conducts \textbf{flit} movement from source Processing Element (\textbf{PE}) to destination PE. The implemented top module is \texttt{TOP}. It realizes a three-stage virtual-channel router with \textbf{wormhole switching}, \textbf{XY-routing}, and \textbf{per-port virtual channels}. For backward compatibility, a wrapper module named \texttt{ROUTER\_3STAGE\_VC} is still kept in the RTL, but the actual split implementation now lives in \texttt{TOP} and the stage-specific submodules.
 
 \section{Functional Description}
 \subsection{Key Features}
@@ -56,7 +52,7 @@ This document specifies the current RTL implementation of a Network-on-Chip (\te
     \centering
     %\includesvg[width=\textwidth]{arbiter} 
     %\includegraphics[width=\textwidth]{router.png} 
-    \safegraphic{fig1_noc_mesh}{0.5\textwidth}
+    \includesvg[width=0.5\textwidth]{fig1_noc_mesh} 
 
     \caption{2D mesh NoC}
     \label{fig:mesh}
@@ -104,7 +100,7 @@ This document specifies the current RTL implementation of a Network-on-Chip (\te
     \item \textbf{Wormhole Switching}: The packets are divided into flits (flow control digits), which are all 32-bit in the design. The first flit in a packet (\textbf{header}), which contains routing and control information, reserves the channel of each router, the \textbf{body} (payload) flits will then follow the reserved channel, and the \textbf{tail} flit will later release the channel reservation. The header contains necessary control signals of the packet, whose format is shown in Figure~\ref{fig:header}.
 \begin{figure}[htbp]
     \centering
-    \safegraphic{fig2_header_format}{\textwidth}
+    \includesvg[width=\textwidth]{fig2_header_format} 
     \caption{Header flit format}
     \label{fig:header}
 \end{figure}
@@ -338,7 +334,7 @@ The implemented router adopts the three-stage pipelined organization \textbf{RC+
 \end{figure}
 
 \subsection{Block Diagram}
-The block diagram is depicted in Figure~\ref{fig:block}. The figure is conceptual: in the current RTL, \texttt{TOP} instantiates a single integrated module \texttt{ROUTER\_3STAGE\_VC}, while the functionality is still naturally decomposed into input virtual channels, route computation plus VC allocation, switch allocation, and switch traversal.
+The block diagram is depicted in Figure~\ref{fig:block}. The figure is conceptual. In the current RTL, the design is explicitly split into the modules \texttt{IVC}, \texttt{RCU\_XY}, \texttt{VAU}, \texttt{SAU}, and \texttt{STU}, while \texttt{TOP} connects them and owns the persistent pipeline state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{block_diagram.png} 
@@ -347,41 +343,56 @@ The block diagram is depicted in Figure~\ref{fig:block}. The figure is conceptua
 \end{figure}
 
 \subsubsection{Top-Level Integration}
-The current top-level wrapper is
+The current top-level module is
 \[
 \texttt{TOP(CLK, RSTn, IFLIT[PORT\_NUM], OFLIT[PORT\_NUM])}
 \]
-with configurable router coordinates \texttt{THISX} and \texttt{THISY}. \texttt{TOP} only instantiates the current implementation module \texttt{ROUTER\_3STAGE\_VC}. Therefore, the architectural state described below is the actual state held inside that module.
+with configurable router coordinates \texttt{THISX} and \texttt{THISY}. \texttt{TOP} instantiates the split stage modules and maintains the pipeline registers, the input-VC packet locks, and the output-VC busy and credit state. At the module boundary, \texttt{TOP} still uses the \texttt{router\_vc\_flit\_if} interface array. Inside the implementation, these interface signals are flattened into ordinary arrays before the control and datapath logic are applied, which matches the current RTL organization and avoids tool issues with procedural indexing over interface arrays.
+
+\subsubsection{Module Partitioning}
+The current modularized RTL is organized as follows:
+\begin{itemize}
+    \item \textbf{\texttt{IVC}}: one instance per physical input port. Each instance contains \texttt{VC\_PER\_PORT} input FIFOs, accepts the incoming flit according to \texttt{in\_vc\_id}, exposes the front flit of every local input VC, and returns one-hot credits to the upstream router when a local VC is dequeued.
+    \item \textbf{\texttt{RCU\_XY}}: one instance per input VC front. It observes the front flit, detects valid head flits, decodes \texttt{DSTX}, \texttt{DSTY}, and \texttt{MSG}, and computes the requested output port using dimension-order XY routing.
+    \item \textbf{\texttt{VAU}}: a single combinational block for Stage 1. It allocates one output VC for each eligible head flit according to its requested output port, message class, current output-VC busy bitmap, and current downstream credit state.
+    \item \textbf{\texttt{SAU}}: a single Stage-2 arbitration block. It builds switch requests from valid Stage-1 entries and uses the separable input-first allocator to select at most one winning local VC per input port and at most one winning input per output port.
+    \item \textbf{\texttt{STU}}: a single Stage-3 output block. It maps the Stage-2 flit registers to the output links, computes which Stage-2 entries leave the router in the current cycle, and marks stalled output ports as busy for the next SA step.
+    \item \textbf{\texttt{TOP}}: the integration and control layer. It connects the module interfaces, updates the next-state logic of the pipeline registers, tracks packet-level reservations for body and tail flits, updates output credits from returned-credit bitmaps, and releases output VCs on transmitted tail flits.
+\end{itemize}
 
 \subsubsection{Stage 1: RC + VA}
-Each physical input port owns \texttt{VC\_PER\_PORT = 4} synchronous input VC FIFOs. The FIFO output is always visible at the front of the queue, which allows the router to inspect the front flit without dequeuing it.
+Each physical input port owns \texttt{VC\_PER\_PORT = 4} synchronous input VC FIFOs through the \texttt{IVC} module. The FIFO output is always visible at the front of the queue, which allows the router to inspect the front flit without dequeuing it.
 \begin{itemize}
-    \item If the front flit is a head flit and the input VC is not locked by a previously allocated packet, \texttt{DSTX}, \texttt{DSTY}, and \texttt{MSG} are decoded from the header.
-    \item The routing result is produced by the XY-routing function and stored as the requested output port.
-    \item In the same cycle, the router allocates one free output VC from the requested output port and from the appropriate message-class subset. In the current RTL, request packets use output VCs 0 and 1, while response packets use output VCs 2 and 3.
-    \item The allocation result is written into the first-stage pipeline registers \texttt{s1\_outport\_q} and \texttt{s1\_ovc\_q}. At the same time, the packet-level lock state \texttt{ivc\_lock\_\{valid,outport,ovc\}\_q} is established so that following body and tail flits reuse the same route and output VC.
+    \item If the front flit is a head flit and the corresponding input VC is not already locked by a previously allocated packet, the per-VC instance of \texttt{RCU\_XY} decodes \texttt{DSTX}, \texttt{DSTY}, and \texttt{MSG}.
+    \item The routing result is produced by XY routing and forwarded to \texttt{VAU} as the requested output port.
+    \item In the same cycle, \texttt{VAU} allocates one free output VC from the requested output port and from the appropriate message-class subset. In the current RTL, request packets use output VCs 0 and 1, while response packets use output VCs 2 and 3.
+    \item The granted route and output VC are written into the first-stage pipeline registers \texttt{s1\_outport\_q} and \texttt{s1\_ovc\_q}. At the same time, the packet-level lock state \texttt{ivc\_lock\_\{valid,outport,ovc\}\_q} is established so that following body and tail flits reuse the same route and output VC.
+    \item If the front flit is a body or tail flit, Stage 1 does not re-run VC allocation. Instead, \texttt{TOP} reloads the Stage-1 registers from the saved packet lock, as long as the reserved output VC still has downstream credit.
 \end{itemize}
 
 \subsubsection{Stage 2: SA}
-Stage 2 performs switch allocation. For each input port, at most one local VC can win. For each output port, at most one requester can win. The current implementation reuses the separable input-first allocator already present in the RTL.
+Stage 2 performs switch allocation through the \texttt{SAU} module. \textbf{For each input port, at most one local VC can win. For each output port, at most one requester can win.} The current implementation uses the existing separable input-first allocator.
 \begin{itemize}
     \item Only input VCs whose first-stage register is valid are allowed to request SA.
+    \item \texttt{SAU} suppresses requests when the per-input Stage-2 slot is not available or when the targeted output is already blocked by a stalled Stage-3 flit.
     \item The winner dequeues one flit from the selected input VC FIFO.
-    \item The winning flit is captured by the second-stage data registers \texttt{s2\_\{flit\_data,is\_head,is\_tail,outport,ovc\}\_q}.
+    \item The winning flit is captured by the second-stage data registers:\\
+    \texttt{s2\_\{flit\_data,is\_head,is\_tail,outport,ovc\}\_q}.
     \item One downstream credit is consumed from the selected output VC when the flit advances from Stage 2 to Stage 3.
     \item If the dequeued flit is a tail or head-tail flit, the corresponding input-VC packet lock is cleared at the end of Stage 2, which allows the next packet in the same input VC to perform \texttt{RC+VA} in a later cycle.
 \end{itemize}
 
 \subsubsection{Stage 3: ST}
-Stage 3 drives the link output. The flit stored in \texttt{s2\_*} traverses the crossbar and appears on \texttt{OFLIT[out\_port]} with the previously allocated \texttt{vc\_id}.
+Stage 3 is implemented by \texttt{STU}. The flit stored in \texttt{s2\_*} traverses the crossbar and appears on \texttt{OFLIT[out\_port]} with the previously allocated \texttt{vc\_id}.
 \begin{itemize}
+    \item \texttt{STU} drives \texttt{valid}, flit payload, flit boundary flags, and the selected output VC index for every physical output link.
     \item A Stage-3 flit leaves the router when \texttt{valid} and \texttt{ready} are both asserted on the selected output link.
     \item If the transmitted flit is a tail or head-tail flit, the corresponding output VC busy bit is cleared, releasing the virtual channel for another packet.
     \item Returned credits from the downstream router increment the per-output-VC credit counters \texttt{ovc\_credit\_q}.
 \end{itemize}
 
 \subsubsection{Implemented State Variables}
-The current integrated implementation replaces the earlier idea of a separate \texttt{VAU} and \texttt{SU} top-level block with explicit in-module state registers:
+The current split implementation keeps the datapath stage logic in dedicated modules, while the following persistent state remains in \texttt{TOP}:
 \begin{itemize}
     \item \textbf{First-stage registers}: \texttt{s1\_valid\_q}, \texttt{s1\_outport\_q}, and \texttt{s1\_ovc\_q}.
     \item \textbf{Input-VC packet lock}: \texttt{ivc\_lock\_valid\_q}, \texttt{ivc\_lock\_outport\_q}, and \texttt{ivc\_lock\_ovc\_q}. These hold the wormhole reservation for body and tail flits.
@@ -390,9 +401,12 @@ The current integrated implementation replaces the earlier idea of a separate \t
     \item \textbf{Second-stage data registers}: \texttt{s2\_valid\_q}, \texttt{s2\_flit\_data\_q}, \texttt{s2\_is\_head\_q}, \texttt{s2\_is\_tail\_q}, \texttt{s2\_outport\_q}, and \texttt{s2\_ovc\_q}.
 \end{itemize}
 
+\subsubsection{Compatibility Wrapper}
+The file \texttt{ROUTER\_3STAGE\_VC.sv} is now a thin wrapper that instantiates \texttt{TOP}. It is kept only to preserve the previous module name for existing testbenches or integration scripts.
+
 \section{Timing Requirements}
 \begin{itemize}
-    \item \textbf{Clock Frequency}: Target frequency of  MHz on nm process node.
+    \item \textbf{Clock Frequency}: No fixed frequency target is encoded in the current RTL. The achievable clock frequency depends on the synthesis constraints, target FPGA or ASIC technology, and physical implementation results.
     \item \textbf{Latency}: In the no-contention case, the head flit requires three router stages, namely \texttt{RC+VA}, \texttt{SA}, and \texttt{ST}, from the time it becomes visible at the front of an input VC until it is transmitted on the output link.
     \item \textbf{Throughput Target}: Once a packet has reserved an input VC and an output VC, body and tail flits can continue advancing without re-running VC allocation, subject to switch-allocation success and downstream readiness.
 \end{itemize}
@@ -401,6 +415,7 @@ The current integrated implementation replaces the earlier idea of a separate \t
 \subsection{Testbench Strategy}
 \begin{itemize}
     \item \textbf{Implemented testbench}: \texttt{TB\_ROUTER\_3STAGE\_VC.sv}.
+    \item \textbf{Integration coverage}: The current testbench validates the split implementation through the compatibility wrapper, so the instantiated path includes \texttt{TOP}, \texttt{IVC}, \texttt{RCU\_XY}, \texttt{VAU}, \texttt{SAU}, and \texttt{STU}.
     \item \textbf{Base Test}: Inject a three-flit request packet into \texttt{LOCAL/VC0} of a router located at \((P1,P1)\) and verify that the packet is routed to \texttt{EAST}.
     \item \textbf{Wormhole continuity}: Verify that the body and tail flits use the same output VC that was allocated to the head flit.
     \item \textbf{Tail release}: After the first packet finishes, inject a following head-tail request packet in the same input VC and verify that it can acquire a new reservation and be routed independently.

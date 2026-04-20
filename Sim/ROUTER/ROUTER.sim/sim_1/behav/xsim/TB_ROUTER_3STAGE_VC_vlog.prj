@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../../RTL/ARBITER/FP_ARBITER.sv" \
+"../../../../../../RTL/noc_params.sv" \
+"../../../../../../RTL/VCI/IVC.sv" \
+"../../../../../../RTL/RCU/RCU_XY.sv" \
+"../../../../../../RTL/ARBITER/RR_ARBITER.sv" \
+"../../../../../../RTL/SAU/SAU.sv" \
+"../../../../../../RTL/STU/STU.sv" \
+"../../../../../../RTL/FIFO/SYNC_FIFO.sv" \
+"../../../../../../RTL/TOP.sv" \
+"../../../../../../RTL/VAU/VAU.sv" \
+"../../../../../../RTL/IF/router_vc_flit_if.sv" \
+"../../../../../../RTL/ARBITER/separable_input_first_allocator.sv" \
+"../../../../../../TB/TB_ROUTER_3STAGE_VC.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
