@@ -1,0 +1,9 @@
+{
+  "total_cases": 3000,
+  "total_packets": 5500,
+  "pass_packets": 5500,
+  "fail_packets": 0,
+  "accuracy": 1.0,
+  "start_time": "2026-05-01T20:23:41.428660",
+  "end_time": "2026-05-01T20:23:41.539250"
+}

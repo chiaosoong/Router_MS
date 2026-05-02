@@ -1,0 +1,10 @@
+{
+  "seed": 12345,
+  "total_cases": 3000,
+  "total_packets": 5500,
+  "case_a_count": 500,
+  "case_b_count": 1000,
+  "case_c_count": 1000,
+  "case_d_count": 3000,
+  "output_dir": "E:\\Master_thesis\\Router_MS\\FPGA_VERIFY\\mem"
+}

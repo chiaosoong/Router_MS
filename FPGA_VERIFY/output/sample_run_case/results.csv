@@ -1,0 +1,3 @@
+case_id,pkt_id,src_rid,dst_rid,msg_class,vc_id,pkt_len,inject_cycle,finish_cycle,latency,status,error_code
+0,768,0,1,REQ,0,1,2,8,6,PASS,PASS
+0,769,8,7,RESP,2,1,2,8,6,PASS,PASS

@@ -1,0 +1,1 @@
+case_id,pkt_id,src_rid,dst_rid,msg_class,vc_id,pkt_len,inject_cycle,finish_cycle,latency,status,error_code

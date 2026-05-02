@@ -1,0 +1,2 @@
+case_id,pkt_done,case_pass,case_fail,latency_sum,latency_min,latency_max,latency_avg
+0,2,2,0,0,0,0,0.0
