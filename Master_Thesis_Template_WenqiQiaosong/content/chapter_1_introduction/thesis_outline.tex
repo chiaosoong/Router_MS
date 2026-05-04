@@ -1,0 +1,27 @@
+\section{Thesis outline}
+The goal of this thesis is to design and implement a NoC router for efficient data movement in a small mesh-based communication system. The router is intended to support packet-based communication between processing elements and to provide basic routing, virtual-channel flow control, and pipelined forwarding. A 3×3 mesh network is used as the target structure, and FPGA implementation is considered as the hardware platform for evaluating the design.
+
+The thesis work is organized as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 2: Background.} 
+    Introduces the key concepts used in this work, including chiplet-based systems, 
+    Network-on-Chip, mesh topology, packet switching, routing, virtual channels, 
+    and flow control.
+
+    \item \textbf{Chapter 3: Design and Implementation.} 
+    Describes the proposed router architecture and its main design components. 
+    This chapter explains the flit format, routing algorithm, allocation methods, 
+    pipeline organization, and 3$\times$3 mesh integration.
+
+    \item \textbf{Chapter 4: Verification and Results.} 
+    Presents the verification plan and FPGA-oriented implementation method. 
+    It describes single-router verification, mesh-level verification, test cases, 
+    and the use of UART for test control and result reporting.
+
+    \item \textbf{Chapter 5: Conclusion and Future Work.} 
+    Summarizes the thesis work and discusses possible future improvements, such as 
+    extending the design to different network topologies, exploring adaptive routing 
+    algorithms, improving arbitration schemes, and integrating the NoC with real 
+    processing elements or accelerator modules.
+\end{itemize}

@@ -1,0 +1,15 @@
+The test cases are designed to cover both basic packet delivery and more complex communication situations in the $3 \times 3$ mesh NoC. Each case contains predefined packet information, including the source node, destination node, packet length, start time, message type, and flit contents. By changing these fields, different transmission scenarios can be generated and executed by the same FPGA-side verification platform.
+
+The test set is organized into several case types:
+
+\begin{itemize}
+    \item \textbf{Single-flit basic case:} Verifies basic connectivity between source and destination nodes using head-tail packets. This case is used to check whether packets can be correctly injected, routed, received, and reported.
+
+    \item \textbf{Concurrent single-flit case:} Injects multiple single-flit packets in overlapping time windows. This case is used to verify whether the NoC can handle simultaneous packet transmission and arbitration between competing requests.
+
+    \item \textbf{Multi-flit packet case:} Uses packets containing head, body, and tail flits. This case checks whether flit order, packet length, and packet termination are handled correctly.
+
+    \item \textbf{Mixed packet case:} Combines multiple packets with different lengths, message types, source-destination pairs, and injection times. This case is used to evaluate more general packet movement and interaction between different packets.
+\end{itemize}
+
+A repeat mechanism is also used to increase the number of executed cases. By repeating selected case types, the verification scale can be enlarged without changing the FPGA-side verification logic. This helps expose errors that may not appear in small directed tests and provides more data for latency and correctness analysis.

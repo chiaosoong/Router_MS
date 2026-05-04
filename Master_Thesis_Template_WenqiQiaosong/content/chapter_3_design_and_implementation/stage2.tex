@@ -1,0 +1,5 @@
+The second stage performs switch allocation. Only input VCs with valid first-stage information are allowed to request access to the switch. Since multiple input VCs may request the same output port in the same cycle, arbitration is required.
+
+The switch allocator uses the separable input-first allocation method described earlier. For each input port, at most one local VC can win the input-side arbitration. For each output port, at most one requester can win the output-side arbitration. When a flit wins switch allocation, it is dequeued from the selected input VC FIFO and stored in the second-stage pipeline registers together with its control information, selected output port, and output VC.
+
+When the flit moves from this stage to the next stage, one downstream credit is consumed. If the dequeued flit is a tail or head-tail flit, the corresponding input-VC lock is cleared at the end of this stage, allowing the next packet in the same input VC to perform routing computation and virtual-channel allocation later.

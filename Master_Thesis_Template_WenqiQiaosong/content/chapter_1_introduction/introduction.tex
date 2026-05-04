@@ -1,0 +1,14 @@
+\label{ch1:introduction}
+
+Chiplet-based design has become an important approach for building scalable and configurable hardware systems. Instead of implementing a complete system as one large monolithic chip, the design can be divided into several smaller chips and integrated in the same package. This approach can improve design reuse, yield, and flexibility, especially when different functions or processing elements need to be combined for a specific application.
+
+However, as more components are integrated, data movement between them becomes an important design issue. Processing elements, memories, and accelerators need to exchange data efficiently, and the communication structure can strongly affect the overall system behavior. A simple shared bus may become inefficient when the number of connected units increases, while a fully connected structure can be too expensive in terms of hardware resources. Therefore, a scalable communication fabric is needed.
+
+Network-on-Chip (NoC) is commonly used as a structured communication method for connecting multiple components in a chip or chiplet-based system. A NoC usually consists of routers, links, and network interfaces. Packets are forwarded through routers according to a routing algorithm, and the network can be extended by connecting more routers together. Compared with bus-based communication, NoC provides better scalability and can support multiple simultaneous data transfers. NoC is also widely considered a promising solution for addressing communication bottlenecks in large-scale multicore and heterogeneous systems \cite{10819599}.
+
+\input{content/chapter_1_introduction/related_work}
+
+\input{content/chapter_1_introduction/thesis_outline}
+
+
+   

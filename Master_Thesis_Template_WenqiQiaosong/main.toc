@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Related work}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Thesis outline}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Chiplet-based Systems and Inter-chip Communication}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Data Movement in RISC-V Systems}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Basic Concept of NoC}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Network Topology}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Flow Control}{7}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Deadlock}{9}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Virtual Channels}{9}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Router Microarchitecture}{10}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Design and Implementation}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Design Targets}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Router Architecture}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Parameter Definition}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Handshake and Credit-based Flow Control}{16}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Routing Algorithm}{17}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Allocators and Arbiters}{18}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Round-robin Arbiter}{19}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Separable Input-first Allocation}{20}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Virtual Channel Allocation}{22}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Switch Allocation}{22}{subsection.3.6.4}%
+\contentsline {section}{\numberline {3.7}Pipeline Organization}{25}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Stage 1: Routing Computation and Virtual-channel Allocation}{25}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Stage 2: Switch Allocation}{25}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Stage 3: Switch Traversal}{25}{subsection.3.7.3}%
+\contentsline {chapter}{\numberline {4}Verification and Results}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Verification Objectives}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Overall Verification Platform}{27}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Python-based Test Case Generation}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}FPGA-based Verification Platform}{29}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}UART Reporting and PC-side Result Analysis}{29}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Test Case Design}{30}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}Discussion and Future Work}{33}{chapter.5}%
+\contentsline {chapter}{References}{35}{appendix*.25}%

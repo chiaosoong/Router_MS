@@ -1,0 +1,3 @@
+The third stage performs switch traversal and drives the output link. The flit stored in the second-stage pipeline registers is forwarded to the selected output port and appears on the corresponding output interface with the allocated VC identifier.
+
+A flit leaves the router only when the valid-ready handshake succeeds on the selected output link. If the transmitted flit is a tail or head-tail flit, the corresponding output VC is released, making it available for another packet. Returned credits from the downstream router are also processed in this stage to update the output-VC credit counters.

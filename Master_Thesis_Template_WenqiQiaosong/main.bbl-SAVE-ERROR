@@ -1,0 +1,607 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{9773184}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=7c0ff190707875870cc2057a18f5a6a8}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Tianqi},
+           giveni={T\bibinitperiod}}}%
+        {{hash=15c80a7f0a2ec9fe3503e295758ec8ff}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+        {{hash=119446aaf93613c089c4f5a25ff80cb1}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Shaolin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b247ada9c21c288f4dcabdae71378271}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=0e966cc34cd7249905ba6204e8dfa915}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{e06a861708b3a379a8684666a25a285c}
+      \strng{fullhash}{b4b1a16c39dabb303f195958a82859ab}
+      \strng{fullhashraw}{b4b1a16c39dabb303f195958a82859ab}
+      \strng{bibnamehash}{e06a861708b3a379a8684666a25a285c}
+      \strng{authorbibnamehash}{e06a861708b3a379a8684666a25a285c}
+      \strng{authornamehash}{e06a861708b3a379a8684666a25a285c}
+      \strng{authorfullhash}{b4b1a16c39dabb303f195958a82859ab}
+      \strng{authorfullhashraw}{b4b1a16c39dabb303f195958a82859ab}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE International Symposium on High-Performance Computer Architecture (HPCA)}
+      \field{title}{Application Defined On-chip Networks for Heterogeneous Chiplets: An Implementation Perspective}
+      \field{year}{2022}
+      \field{pages}{1198\bibrangedash 1210}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/HPCA53966.2022.00091
+      \endverb
+      \keyw{Design methodology;Computer architecture;Bandwidth;Network-on-chip;Packaging;Energy efficiency;Servers}
+    \endentry
+    \entry{chen2024surveychipletbasedintegratedarchitecture}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=39be038ae2b09b8e9cab13a745724d5d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Shixin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3be4e9f25fbf3bef32bd7f686fe01dab}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Hengyuan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6fcf873919c5dd2821cafc12c614f77c}{%
+           family={Ling},
+           familyi={L\bibinitperiod},
+           given={Zichao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=4f6975645764b31558edfecd9f656ced}{%
+           family={Zhai},
+           familyi={Z\bibinitperiod},
+           given={Jianwang},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3837485251ac9b416c4124924b2f87f5}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Bei},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d52024baaa3558dd9a7267f391bba1a8}
+      \strng{fullhash}{5cc02b0b1f3d38d01d51a0238f133249}
+      \strng{fullhashraw}{5cc02b0b1f3d38d01d51a0238f133249}
+      \strng{bibnamehash}{d52024baaa3558dd9a7267f391bba1a8}
+      \strng{authorbibnamehash}{d52024baaa3558dd9a7267f391bba1a8}
+      \strng{authornamehash}{d52024baaa3558dd9a7267f391bba1a8}
+      \strng{authorfullhash}{5cc02b0b1f3d38d01d51a0238f133249}
+      \strng{authorfullhashraw}{5cc02b0b1f3d38d01d51a0238f133249}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.AR}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Survey of Chiplet-based Integrated Architecture: An EDA Perspective}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2411.04410
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2411.04410
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2411.04410
+      \endverb
+    \endentry
+    \entry{10035152}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=4a60def669baec5110954343ea664f6f}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Yee\bibnamedelima Yang},
+           giveni={Y\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=34ce85ef07ab1b665a2954342abfdf0a}{%
+           family={Staudigl},
+           familyi={S\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+        {{hash=ef75ded854a9d74bb07dc4af314fa7a2}{%
+           family={Jünger},
+           familyi={J\bibinitperiod},
+           given={Lukas},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1d981ffb2a85000e46f00906932e09cb}{%
+           family={Drewes},
+           familyi={D\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=264153964ff5e336deee8f9b8a8fbc11}{%
+           family={Leupers},
+           familyi={L\bibinitperiod},
+           given={Rainer},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6b79931f0cedd80334a05c769b2490c7}{%
+           family={Joseph},
+           familyi={J\bibinitperiod},
+           given={Jan\bibnamedelima Moritz},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb061556794f9ac69b31c88a4a1db3a8}
+      \strng{fullhash}{c5b8f0dd41d9e599533f5f399b3230aa}
+      \strng{fullhashraw}{c5b8f0dd41d9e599533f5f399b3230aa}
+      \strng{bibnamehash}{bb061556794f9ac69b31c88a4a1db3a8}
+      \strng{authorbibnamehash}{bb061556794f9ac69b31c88a4a1db3a8}
+      \strng{authornamehash}{bb061556794f9ac69b31c88a4a1db3a8}
+      \strng{authorfullhash}{c5b8f0dd41d9e599533f5f399b3230aa}
+      \strng{authorfullhashraw}{c5b8f0dd41d9e599533f5f399b3230aa}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 32nd International Conference on Field-Programmable Logic and Applications (FPL)}
+      \field{title}{EmuNoC: Hybrid Emulation for Fast and Flexible Network-on-Chip Prototyping on FPGAs}
+      \field{year}{2022}
+      \field{pages}{334\bibrangedash 341}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/FPL57034.2022.00058
+      \endverb
+      \keyw{Emulation;Network-on-chip;Computer architecture;Benchmark testing;Software;Hardware;Field programmable gate arrays;Hybrid emulation;NoCs;FPGA}
+    \endentry
+    \entry{10819599}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=6134ec05fd3ded0887fd8930d1f4b3b6}{%
+           family={Biglari},
+           familyi={B\bibinitperiod},
+           given={Siamak},
+           giveni={S\bibinitperiod}}}%
+        {{hash=729d38e70232ad4f4f518e44e0d76aa2}{%
+           family={Hosseini},
+           familyi={H\bibinitperiod},
+           given={Farahnaz},
+           giveni={F\bibinitperiod}}}%
+        {{hash=87bdd0bedf4ecd49ea784163e0bd2c34}{%
+           family={Upadhyay},
+           familyi={U\bibinitperiod},
+           given={Aadesh},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6a4c78fb3d965b2b2a9c3f627b540555}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d1762126fa9dfc9f7265c39c8e81fe8}
+      \strng{fullhash}{c8037379b158f5eb45df13fc95ddcb80}
+      \strng{fullhashraw}{c8037379b158f5eb45df13fc95ddcb80}
+      \strng{bibnamehash}{8d1762126fa9dfc9f7265c39c8e81fe8}
+      \strng{authorbibnamehash}{8d1762126fa9dfc9f7265c39c8e81fe8}
+      \strng{authornamehash}{8d1762126fa9dfc9f7265c39c8e81fe8}
+      \strng{authorfullhash}{c8037379b158f5eb45df13fc95ddcb80}
+      \strng{authorfullhashraw}{c8037379b158f5eb45df13fc95ddcb80}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE 17th International Symposium on Embedded Multicore/Many-core Systems-on-Chip (MCSoC)}
+      \field{title}{Survey of Network-on-Chip (NoC) for Heterogeneous Multicore Systems}
+      \field{year}{2024}
+      \field{pages}{155\bibrangedash 162}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/MCSoC64144.2024.00036
+      \endverb
+      \keyw{Surveys;Multicore processing;Network-on-chip;System integration;Manufacturing;Complexity theory;Data communication;Hardware acceleration;System analysis and design;Field programmable gate arrays;Network-on-Chip;NoC;Heterogeneous System;Multicore System;Hardware Accelerator;GPU NoC;FPGA NoC;interposer NoC}
+    \endentry
+    \entry{8119941}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=8f1931ff838407758169f5f90efbbccf}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={Wonje},
+           giveni={W\bibinitperiod}}}%
+        {{hash=5a5fa8798363c9c5618130b722067bac}{%
+           family={Duraisamy},
+           familyi={D\bibinitperiod},
+           given={Karthi},
+           giveni={K\bibinitperiod}}}%
+        {{hash=53ca5ce3d157aa30856e16f176c12b38}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Ryan\bibnamedelima Gary},
+           giveni={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=4ea40ff18774eb50dc017c766cac4311}{%
+           family={Doppa},
+           familyi={D\bibinitperiod},
+           given={Janardhan\bibnamedelima Rao},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=b8526b291ee22246bbbffd44a14fc0b3}{%
+           family={Pande},
+           familyi={P\bibinitperiod},
+           given={Partha\bibnamedelima Pratim},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=23ef9ce8f82b8d43403cf65b5256c08d}{%
+           family={Marculescu},
+           familyi={M\bibinitperiod},
+           given={Diana},
+           giveni={D\bibinitperiod}}}%
+        {{hash=398124422ca4d7165722391984fa34ad}{%
+           family={Marculescu},
+           familyi={M\bibinitperiod},
+           given={Radu},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{11ecb3d1d52b453499fe71bae09a126e}
+      \strng{fullhash}{089ffa691bcd50c8bcb2f8ecce2aad81}
+      \strng{fullhashraw}{089ffa691bcd50c8bcb2f8ecce2aad81}
+      \strng{bibnamehash}{11ecb3d1d52b453499fe71bae09a126e}
+      \strng{authorbibnamehash}{11ecb3d1d52b453499fe71bae09a126e}
+      \strng{authornamehash}{11ecb3d1d52b453499fe71bae09a126e}
+      \strng{authorfullhash}{089ffa691bcd50c8bcb2f8ecce2aad81}
+      \strng{authorfullhashraw}{089ffa691bcd50c8bcb2f8ecce2aad81}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Computers}
+      \field{number}{5}
+      \field{title}{On-Chip Communication Network for Efficient Training of Deep Convolutional Networks on Heterogeneous Manycore Systems}
+      \field{volume}{67}
+      \field{year}{2018}
+      \field{pages}{672\bibrangedash 686}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TC.2017.2777863
+      \endverb
+      \keyw{Computer architecture;Graphics processing units;Training;Wireless communication;System-on-chip;Machine learning;Wireless sensor networks;System-on-chip;Deep learning;Manycore systems;Wireless communication;Energy-efficient computing;Heterogeneous Architectures;Network-on-Chip}
+    \endentry
+    \entry{9218654}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=34d448899769c04cec124cb68f2bb014}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9977c03c4025bd86cbe014ceb976aabe}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Ke},
+           giveni={K\bibinitperiod}}}%
+        {{hash=55803d65292197fa5583a9a997e99633}{%
+           family={Louri},
+           familyi={L\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{fullhash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{fullhashraw}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{bibnamehash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{authorbibnamehash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{authornamehash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{authorfullhash}{a91a39b7166952e415a6be3b23a075cd}
+      \strng{authorfullhashraw}{a91a39b7166952e415a6be3b23a075cd}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2020 57th ACM/IEEE Design Automation Conference (DAC)}
+      \field{title}{A Versatile and Flexible Chiplet-based System Design for Heterogeneous Manycore Architectures}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/DAC18072.2020.9218654
+      \endverb
+      \keyw{Topology;Switches;Computer architecture;Network topology;Transistors;Bandwidth;Silicon}
+    \endentry
+    \entry{11265742}{article}{}{}
+      \name{author}{17}{}{%
+        {{hash=489c3f4ce17de3161d1d897c3e56020f}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Hongwei},
+           giveni={H\bibinitperiod}}}%
+        {{hash=94929a652dc1723e34425b21d7ab44ba}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Yuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=27c65424bf96d361866b39bf6fe65960}{%
+           family={Pu},
+           familyi={P\bibinitperiod},
+           given={Bo},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3e5841feda971f11c245dc763de25ca2}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Guojun},
+           giveni={G\bibinitperiod}}}%
+        {{hash=920a1296556bc1fc32411e336b20afdf}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuhang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=0af7001b04ddc2e8a0ba777c772e4a46}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Linji},
+           giveni={L\bibinitperiod}}}%
+        {{hash=371948b3db99e865792634809a8fbfc3}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Pengchao},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4a2d07c6b724d5792733910f2dc082f4}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={An},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b0a63a9f832f00cc0a29c361a64c672e}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f37c47b3c9f426d7a85d4091365a9817}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Chengming},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e10c1eafe9a0dd71b4a3a68eda5ca343}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=c3403e0f2251956846df6bfe72d59d59}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Xiaoteng},
+           giveni={X\bibinitperiod}}}%
+        {{hash=6110d23135fc9ce9047051f50acc0996}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Xuqiang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=62393b4ef0169052b4ada7cbf085cc62}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={He},
+           giveni={H\bibinitperiod}}}%
+        {{hash=bb45af512ddadf900d16713f10d305bc}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yongfu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=119446aaf93613c089c4f5a25ff80cb1}{%
+           family={Xiang},
+           familyi={X\bibinitperiod},
+           given={Shaolin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3d0500edf1f7cc4d63ac1bcd3788a632}{%
+           family={Hao},
+           familyi={H\bibinitperiod},
+           given={Qinfen},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{ed73c08ed4fec044f84aa0ec77bd6d55}
+      \strng{fullhash}{74be00de15f0617dabc8d6f0b1a3406d}
+      \strng{fullhashraw}{74be00de15f0617dabc8d6f0b1a3406d}
+      \strng{bibnamehash}{ed73c08ed4fec044f84aa0ec77bd6d55}
+      \strng{authorbibnamehash}{ed73c08ed4fec044f84aa0ec77bd6d55}
+      \strng{authornamehash}{ed73c08ed4fec044f84aa0ec77bd6d55}
+      \strng{authorfullhash}{74be00de15f0617dabc8d6f0b1a3406d}
+      \strng{authorfullhashraw}{74be00de15f0617dabc8d6f0b1a3406d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal on Emerging and Selected Topics in Circuits and Systems}
+      \field{number}{4}
+      \field{title}{Survey of Chiplet Technology: SoC Architecture, Interconnect, EDA, and Advanced Packaging}
+      \field{volume}{15}
+      \field{year}{2025}
+      \field{pages}{514\bibrangedash 536}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1109/JETCAS.2025.3636408
+      \endverb
+      \keyw{Chiplets;Integrated circuit interconnections;Packaging;Three-dimensional printing;Surveys;Integrated circuits;Terminology;Silicon;IP networks;Computer architecture;Chiplet;terminology;composition;chiplet-based SoC;chiplet interconnect;EDA for chiplets;advanced packaging for chiplets;2.5-D system;3-D system;chiplet marketplace}
+    \endentry
+    \entry{chen2022design}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=2b5b3011ad19ed81c19be5f14d6a8cb6}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Chixiao},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f9a0e2aa271ab31a8b89886e3c5fb2d0}{%
+           family={Yin},
+           familyi={Y\bibinitperiod},
+           given={Jieming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=06b2628bb81b35bb365ba0a09ccd242c}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Yarui},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ed8e7fbceb225fc5a7004f3a6a87bd94}{%
+           family={Palesi},
+           familyi={P\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f5796f8c8d3d06a35a6da9efa76949fe}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Wenxu},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b6bba0c9a7b0fcae47cf8688b7593ce1}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Letian},
+           giveni={L\bibinitperiod}}}%
+        {{hash=f779d10617a1f79ada8fdf128de060de}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Amit\bibnamedelima Kumar},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=0fccf29786764304741929e9e8c8ab34}{%
+           family={Zhi},
+           familyi={Z\bibinitperiod},
+           given={Haocong},
+           giveni={H\bibinitperiod}}}%
+        {{hash=cf0cde799ce379dd53ed1a0c6df3716b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaohang},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers}%
+      }
+      \strng{namehash}{65a275e6104bdc47930b38b34186a038}
+      \strng{fullhash}{3c5259a632836bfad159e744d39fc560}
+      \strng{fullhashraw}{3c5259a632836bfad159e744d39fc560}
+      \strng{bibnamehash}{65a275e6104bdc47930b38b34186a038}
+      \strng{authorbibnamehash}{65a275e6104bdc47930b38b34186a038}
+      \strng{authornamehash}{65a275e6104bdc47930b38b34186a038}
+      \strng{authorfullhash}{3c5259a632836bfad159e744d39fc560}
+      \strng{authorfullhashraw}{3c5259a632836bfad159e744d39fc560}
+      \field{extraname}{2}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Design and Test}
+      \field{number}{6}
+      \field{title}{Design challenges of intra-and inter-chiplet interconnection}
+      \field{volume}{39}
+      \field{year}{2022}
+      \field{pages}{99\bibrangedash 109}
+      \range{pages}{11}
+    \endentry
+    \entry{becker2012efficient}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=345e4a362055d8139d7d7de9c7c109b4}{%
+           family={Becker},
+           familyi={B\bibinitperiod},
+           given={Daniel\bibnamedelima U},
+           giveni={D\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Stanford University}%
+      }
+      \strng{namehash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{fullhash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{fullhashraw}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{bibnamehash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{authorbibnamehash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{authornamehash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{authorfullhash}{345e4a362055d8139d7d7de9c7c109b4}
+      \strng{authorfullhashraw}{345e4a362055d8139d7d7de9c7c109b4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Efficient microarchitecture for network-on-chip routers}
+      \field{year}{2012}
+    \endentry
+    \entry{Danashtalab2014}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{hash=1691fb425a430d8a504444e4175e4cd2}{%
+           family={Danashtalab},
+           familyi={D\bibinitperiod},
+           given={Masoud},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ed8e7fbceb225fc5a7004f3a6a87bd94}{%
+           family={Palesi},
+           familyi={P\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=ed8e7fbceb225fc5a7004f3a6a87bd94}{%
+           family={Palesi},
+           familyi={P\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bbc7fb07d1a6838429d60374a7135cb4}{%
+           family={Daneshtalab},
+           familyi={D\bibinitperiod},
+           given={Masoud},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{fullhash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{fullhashraw}{53682a35c6f7055bca2a14d61516814a}
+      \strng{bibnamehash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{authorbibnamehash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{authornamehash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{authorfullhash}{53682a35c6f7055bca2a14d61516814a}
+      \strng{authorfullhashraw}{53682a35c6f7055bca2a14d61516814a}
+      \strng{editorbibnamehash}{047e2064c8854485f7f816d38a9a07a5}
+      \strng{editornamehash}{047e2064c8854485f7f816d38a9a07a5}
+      \strng{editorfullhash}{047e2064c8854485f7f816d38a9a07a5}
+      \strng{editorfullhashraw}{047e2064c8854485f7f816d38a9a07a5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{As the number of cores integrated into a System-on-Chip increases, the role played by the communication system becomes more and more important. The Network-on-Chip design paradigm is today recognised as the most viable communication infrastructure to deal with the scalability issues which characterise the ultra-deep sub-micron silicon era. In this chapter, some of the most important concepts in the context of on-chip networks will be reviewed. Basic concepts including, network topologies, switching techniques, and routing algorithms will be recalled. Such topics represent the conceptual bases exploited by the strategies, the mechanisms, and the methodologies discussed in the subsequent chapters.}
+      \field{booktitle}{Routing Algorithms in Networks-on-Chip}
+      \field{isbn}{978-1-4614-8274-1}
+      \field{title}{Basic Concepts on On-Chip Networks}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 18}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/978-1-4614-8274-1_1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4614-8274-1_1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4614-8274-1_1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

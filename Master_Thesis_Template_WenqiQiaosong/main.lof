@@ -1,0 +1,20 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Network topology}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Packet and flit organization}}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Deadlock scenario caused by cyclic dependency}}{9}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Example of three Input Ports with two virtual channels per port}}{10}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Virtual-channel-based router architecture}}{11}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces $3 \times 3$ mesh structure}}{13}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Router microarchitecture}}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Header flit format and field definitions}}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Valid-ready handshake and credit-based flow control between neighboring routers.}}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Round-robin arbiter structure}}{19}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Separable input-first allocation structure}}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Example of separable input-first allocation.}}{21}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Virtual-channel allocation flow}}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Switch allocation flow}}{24}{figure.caption.22}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Overall verification platform}}{28}{figure.caption.23}%
+\addvspace {10\p@ }

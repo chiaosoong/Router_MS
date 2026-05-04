@@ -1,0 +1,10 @@
+The design is based on a $3 \times 3$ two-dimensional mesh topology, in which nine processing elements are interconnected by routers. Each router contains five ports: one local port connected to the processing element, and four directional ports connected to the north, south, west, and east neighbors. This topology provides the communication framework for packet transmission in the target system.
+
+Figure~\ref{fig:router_microarchitecture} illustrates the overall architecture of the proposed router. The router is designed to support flit-based packet forwarding under wormhole switching and virtual-channel flow control. In general, the router consists of routing computation, virtual-channel allocation, switch allocation, and switching logic, together with the required state management units. These modules cooperate to determine the output direction, assign channel resources, and transfer flits from the selected input side to the corresponding output side.The following sections describe the structure and implementation of these modules in more detail.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/ch3_design_and_implementation/router_microarchitec.png}
+    \caption{Router microarchitecture}
+    \label{fig:router_microarchitecture}
+\end{figure}

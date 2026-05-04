@@ -1,0 +1,17 @@
+The FPGA-side verification platform is responsible for executing the generated test cases, injecting packets into the DUT, checking the received packets, and reporting the verification results. The platform is organized as an on-chip self-verification environment, where packet generation, packet checking, result buffering, and UART reporting are integrated into the FPGA logic.
+
+The main modules of the FPGA-side verification platform are organized as follows:
+
+\begin{itemize}
+    \item \texttt{fpga\_board\_top}: Serves as the top-level wrapper for FPGA implementation. It connects the verification platform to board-level resources such as clock, reset, UART, and status signals.
+
+    \item \texttt{fpga\_test\_controller}: Reads predefined packet entries from the initialized ROM and controls the execution of test cases. It schedules packet injection according to the packet start time and provides packet information to the generator.
+
+    \item \texttt{fpga\_mesh\_traffic\_generator}: Converts packet entries into flits and injects them into the corresponding input ports of the DUT. It is responsible for generating valid packet streams according to the test schedule.
+
+    \item \texttt{fpga\_mesh\_packet\_checker}: Observes the output side of the DUT and checks whether received packets match the expected results. It verifies destination, packet length, flit order, flit type, and related metadata, and produces packet-level pass/fail results.
+
+    \item \texttt{fpga\_report\_fifo}: Buffers verification reports before UART transmission. This decouples the internal verification logic from the slower serial reporting interface.
+
+    \item \texttt{fpga\_uart\_reporter}: Formats the verification reports and sends them to the host computer through UART for logging and further analysis.
+\end{itemize}

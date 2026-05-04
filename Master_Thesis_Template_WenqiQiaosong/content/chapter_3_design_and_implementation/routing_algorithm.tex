@@ -1,0 +1,46 @@
+The router uses a deterministic XY routing algorithm in the 3×3 mesh network. The output port is selected by comparing the current router coordinates with the destination coordinates in the header flit.
+
+The packet is first routed in the X direction. If the destination is on the right, the packet is sent to EAST; if it is on the left, it is sent to WEST. When the X coordinate is already matched, the router then compares the Y coordinate and sends the packet to NORTH or SOUTH. If both coordinates match, the packet is delivered to the LOCAL port.
+
+This method is simple and hardware-efficient, since it only requires coordinate comparison and no routing table. Another advantage is that XY routing naturally restricts all turns from the Y dimension back to the X dimension. Therefore, cyclic channel dependencies are avoided, which helps prevent routing deadlock. Its limitation is that the path is fixed and cannot adapt to congestion.
+
+\begin{algorithm}[htbp]
+\caption{Pseudo code of the XY-routing computation}
+\label{alg:xy_routing}
+\textbf{Definitions:}
+
+\begin{itemize}
+    \item $cur_x, cur_y$: current router coordinates.
+    \item $dst_x, dst_y$: destination router coordinates.
+    \item $port$: selected output port.
+\end{itemize}
+
+\textbf{Input:}
+
+\begin{itemize}
+    \item $cur_x, cur_y$: coordinates of current router.
+    \item $dst_x, dst_y$: coordinates extracted from the header flit.
+\end{itemize}
+
+\textbf{Output:}
+
+\begin{itemize}
+    \item $port$: routing decision toward the next hop.
+\end{itemize}
+
+\begin{algorithmic}[1]
+\If{$dst_x > cur_x$}
+    \State $port \gets EAST$
+\ElsIf{$dst_x < cur_x$}
+    \State $port \gets WEST$
+\ElsIf{$dst_y > cur_y$}
+    \State $port \gets NORTH$
+\ElsIf{$dst_y < cur_y$}
+    \State $port \gets SOUTH$
+\Else
+    \State $port \gets LOCAL$
+\EndIf
+\State \Return $port$
+\end{algorithmic}
+\end{algorithm}
+
